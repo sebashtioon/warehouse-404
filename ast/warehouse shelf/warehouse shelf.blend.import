@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dwva80nldxlsi"
-path="res://.godot/imported/warehouse shelf.blend-78c4f1b9e79b3e5dfb1fd8a5a945fcb4.scn"
+path="res://.godot/imported/warehouse shelf.blend-41c4cfb261535148ec578bc01fb5c741.scn"
 
 [deps]
 
-source_file="res://ast/warehouse shelf.blend"
-dest_files=["res://.godot/imported/warehouse shelf.blend-78c4f1b9e79b3e5dfb1fd8a5a945fcb4.scn"]
+source_file="res://ast/warehouse shelf/warehouse shelf.blend"
+dest_files=["res://.godot/imported/warehouse shelf.blend-41c4cfb261535148ec578bc01fb5c741.scn"]
 
 [params]
 

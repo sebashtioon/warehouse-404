@@ -1,8 +1,10 @@
-[gd_scene format=3 uid="uid://bobd2us7u01lb"]
+[gd_scene format=4 uid="uid://bobd2us7u01lb"]
 
 [ext_resource type="PackedScene" uid="uid://yxmkgnxkstnb" path="res://ast/warehouse/model/warehouse.blend" id="1_c1elt"]
 [ext_resource type="PackedScene" uid="uid://byato6cdnqrsh" path="res://ast/ceiling light/actor/ceiling_light.tscn" id="2_2ikh2"]
-[ext_resource type="PackedScene" uid="uid://dwva80nldxlsi" path="res://ast/warehouse shelf.blend" id="3_j0ycx"]
+[ext_resource type="PackedScene" uid="uid://dwva80nldxlsi" path="res://ast/warehouse shelf/warehouse shelf.blend" id="3_j0ycx"]
+[ext_resource type="PackedScene" uid="uid://clf2r3085p34h" path="res://ast/cardboard box/cardboard_box.blend" id="4_ilctt"]
+[ext_resource type="Material" uid="uid://g5fr5n462mx7" path="res://res/mat/cardboardbox.tres" id="5_25myv"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_c1elt"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -27,6 +29,40 @@ size = Vector3(110.55188, 1, 145.25336)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j0ycx"]
 emission_enabled = true
 emission = Color(1, 1, 1, 1)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_y3wmq"]
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2.1710188, 2),
+"format": 34359742465,
+"index_count": 84,
+"index_data": PackedByteArray("AAABAAIAAwACAAEAAwAEAAIAAAAFAAEABgAFAAAABgAIAAUACAAJAAUAFAAGAAAACAAGABQAFAAAAAcACAAVAAkACAAUABUAFQALAAkAFgAUAAcAFQAUABYAFgAHAA4AFQAXAAsAFQAWABcAFwAMAAsAFwAKAAwAFwAWAA0AFwANAAoADQAWAA4ADQAOAA8ADQAQAAoADQARABAAEAARABIAEAASABMA"),
+"lods": [0.0008109928, PackedByteArray("AAABAAIAAwACAAEAAwAEAAIAAAAFAAEABgAFAAAABgAAAAcABgAIAAUACAAJAAUACAAKAAkACAAGAAoACgALAAkACgAMAAsACgAGAA0ADQAGAAcADQAHAA4ADQAOAA8ADQAQAAoADQARABAAEAARABIAEAASABMA")],
+"name": "cardboard",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AACAv9mPfT8AAIA/AACAvwAAgD8AAIC/AACAvwAAgD8AAIA/I6c3vfLjlT8AAIC/K6c3vfLjlT8AAIA/AACAv9mPfT8AAIC/AACAvwAAgL8AAIA/ANcjvNmPfT8AAIA/AACAvwAAgL8AAIC/4NYjvNmPfT8AAIC/AACAPwAAgL8AAIC/zczMPdmPfT8AAIC/AACAP9mPfT8AAIC/AACAPwAAgL8AAIA/zczMPdmPfT8AAIA/AACAP9mPfT8AAIA/AACAPwAAgD8AAIC/AACAPwAAgD8AAIA/dL8ZPlGblD8AAIA/dL8ZPlGblD8AAIC/4NYjvAAAgL8AAIA/ANcjvAAAgL8AAIC/zczMPQAAgL8AAIA/zczMPQAAgL8AAIC/")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_2vipp"]
+resource_name = "cardboard_box_Cube_002"
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2.1710188, 2),
+"attribute_data": PackedByteArray("7Md+PwAAAAAAAIA/AACAPwAAgD8AAAAA7Md+PwAAgD8AAICzAAAAAAAAAAAAAIA/AACAPwAAgD8AAIA/AAAAAAAAgD8AAAAAAACAPwAAgD+lcP0+AAAAAAAAAAAAAIA/AAAAAAAAAAClcP0+AACAPwAAgD8AAAAAzcwMPwAAgD/NzAw/AAAAAAAAgD8AAIA/AACAPwAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAD0XNA+ij85P3z8jD5Utu0+B1OUPla27T70XNA+VrbtPiDjFT6KPzk/IOMVPla27T4iFic/RFA/Py0LST9gFPY+IhYnP2AU9j7Wr2s/RFA/PxHRTD9gFPY+1q9rP2AU9j7NzAw/AAAAAM3MDD8AAIA/pXD9PgAAAAClcP0+AACAPwdTlD6KPzk/e/yMPoo/OT8tC0k/RFA/PxLRTD9EUD8/"),
+"format": 34359742487,
+"index_count": 84,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAADAAAABAAFAAMABgAHAAgABgAJAAcAIgAUABIAIgAjABQAJAAjACIAJAAlACMAFQAlACQAFQATACUACgALAAwACgANAAsADgAPABAADgARAA8AJgAXABgAFgAmABgAFgAYABkAJgAnABcAJwAbABcAJwAaABsAHAAdAB4AHAAoAB0AKAAgAB0AKAApACAAKQAhACAAKQAfACEA"),
+"lods": [0.0008109928, PackedByteArray("AAABAAIAAAADAAEABAADAAAABAAFAAMABgAHAAgABgAJAAcACgALAAwACgANAAsADgAPABAADgARAA8AEgATABQAFQATABIAFgAXABgAFgAYABkAFgAaABcAGgAbABcAHAAdAB4AHAAfAB0AHwAgAB0AHwAhACAA")],
+"material": ExtResource("5_25myv"),
+"name": "cardboard",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 42,
+"vertex_data": PackedByteArray("AACAv9mPfT8AAIA/AACAvwAAgD8AAIC/AACAvwAAgD8AAIA/AACAv9mPfT8AAIC/AACAvwAAgL8AAIA/AACAvwAAgL8AAIC/AACAPwAAgL8AAIA/AACAPwAAgD8AAIC/AACAPwAAgL8AAIC/AACAPwAAgD8AAIA/I6c3vfLjlT8AAIC/AACAvwAAgD8AAIA/AACAvwAAgD8AAIC/K6c3vfLjlT8AAIA/AACAPwAAgD8AAIC/dL8ZPlGblD8AAIA/dL8ZPlGblD8AAIC/AACAPwAAgD8AAIA/AACAPwAAgL8AAIC/AACAvwAAgL8AAIA/AACAPwAAgL8AAIA/AACAvwAAgL8AAIC/AACAPwAAgL8AAIA/ANcjvNmPfT8AAIA/zczMPdmPfT8AAIA/AACAP9mPfT8AAIA/AACAvwAAgL8AAIA/AACAv9mPfT8AAIA/AACAvwAAgL8AAIC/4NYjvNmPfT8AAIC/AACAv9mPfT8AAIC/AACAPwAAgL8AAIC/zczMPdmPfT8AAIC/AACAP9mPfT8AAIC/zczMPQAAgL8AAIC/zczMPQAAgL8AAIA/ANcjvAAAgL8AAIC/4NYjvAAAgL8AAIA/zczMPQAAgL8AAIA/4NYjvAAAgL8AAIA/ANcjvAAAgL8AAIC/zczMPQAAgL8AAIC/AAD/f/9/AAAAAP9//38AAAAA/3//fwAAAAD/f/9/AAAAAP9//38AAAAA/3//fwAA////f////7////9/////v////3////+/////f////7+QbI/sj+y2yZBsj+yP7LbJkGyP7I/stsmQbI/sj+y2yWGUnOuc6861YZSc65zrzrVhlJzrnOvOtWGUnOuc6861/38AAP///z//fwAA////P/9/AAD///8//38AAP///z//f/9/////v/9//3////+//3//f////7//f/9/////v/9//3////+//3//f////7//////////P/////////8//////////z//////////P/////////8//////////z//fwAA////P/9/AAD///8//38AAP///z//fwAA////P/9//3////+//3//f////7//////////P/////////8/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_y3wmq")
 
 [node name="warehouse" unique_id=357572645 instance=ExtResource("1_c1elt")]
 
@@ -72,11 +108,62 @@ light_energy = 15.074
 omni_range = 2.1804762
 
 [node name="OmniLight3D2" parent="ceiling_light2" index="5" unique_id=1753280805]
-transform = Transform3D(0.49019608, 0, 0, 0, 0.49019608, 0, 0, 0, 0.49019608, 0, -2.5898762, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5898762, 0)
 light_energy = 3.983
 omni_range = 11.448876
+omni_attenuation = 0.903
 
 [node name="warehouse shelf" parent="." index="7" unique_id=2020051954 instance=ExtResource("3_j0ycx")]
 transform = Transform3D(0.007831254, 0, 0.6738742, 0, 0.67391974, 0, -0.6738742, 0, 0.007831254, 13.8135605, 0.37157536, 10.814373)
 
+[node name="cardboard_box2" parent="." index="8" unique_id=939989726 instance=ExtResource("4_ilctt")]
+transform = Transform3D(0.6097545, 0, 0.017303934, 0, 0.61, 0, -0.017303934, 0, 0.6097545, 15.601766, 1.3750088, 11.830724)
+
+[node name="Closed" parent="cardboard_box2" index="0" unique_id=61393351]
+mesh = SubResource("ArrayMesh_2vipp")
+
+[node name="Open" parent="cardboard_box2" index="1" unique_id=1117240781]
+visible = false
+
+[node name="cardboard_box3" parent="." index="9" unique_id=1305874224 instance=ExtResource("4_ilctt")]
+transform = Transform3D(0.5977708, 0, -0.1215322, 0, 0.60999995, 0, 0.1215322, 0, 0.5977708, 13.965352, 1.3750088, 11.830724)
+
+[node name="Closed" parent="cardboard_box3" index="0" unique_id=61393351]
+mesh = SubResource("ArrayMesh_2vipp")
+
+[node name="Open" parent="cardboard_box3" index="1" unique_id=1117240781]
+visible = false
+
+[node name="cardboard_box4" parent="." index="10" unique_id=575643865 instance=ExtResource("4_ilctt")]
+transform = Transform3D(0.60284626, 0, 0.09314712, 0, 0.6099999, 0, -0.09314712, 0, 0.60284626, 11.734496, 1.3750088, 11.830724)
+
+[node name="Closed" parent="cardboard_box4" index="0" unique_id=61393351]
+mesh = SubResource("ArrayMesh_2vipp")
+
+[node name="Open" parent="cardboard_box4" index="1" unique_id=1117240781]
+visible = false
+
+[node name="cardboard_box5" parent="." index="11" unique_id=703161470 instance=ExtResource("4_ilctt")]
+transform = Transform3D(0.60284626, 0, 0.09314712, 0, 0.6099999, 0, -0.09314712, 0, 0.60284626, 10.060273, 3.8612747, 11.830724)
+
+[node name="Closed" parent="cardboard_box5" index="0" unique_id=61393351]
+mesh = SubResource("ArrayMesh_2vipp")
+
+[node name="Open" parent="cardboard_box5" index="1" unique_id=1117240781]
+visible = false
+
+[node name="cardboard_box6" parent="." index="12" unique_id=1984603840 instance=ExtResource("4_ilctt")]
+transform = Transform3D(-0.59716743, 0, 0.37472126, 0, 0.705, 0, -0.37472126, 0, -0.59716743, 15.013936, 3.9704213, 11.830724)
+
+[node name="Closed" parent="cardboard_box6" index="0" unique_id=61393351]
+mesh = SubResource("ArrayMesh_2vipp")
+
+[node name="Open" parent="cardboard_box6" index="1" unique_id=1117240781]
+visible = false
+
 [editable path="ceiling_light2"]
+[editable path="cardboard_box2"]
+[editable path="cardboard_box3"]
+[editable path="cardboard_box4"]
+[editable path="cardboard_box5"]
+[editable path="cardboard_box6"]
