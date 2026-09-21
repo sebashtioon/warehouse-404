@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://byato6cdnqrsh"]
+
+[ext_resource type="PackedScene" uid="uid://uyb5dmtqx61" path="res://ast/ceiling light/ceiling_light.blend" id="1_8tggg"]
+
+[node name="ceiling_light" unique_id=679925041 instance=ExtResource("1_8tggg")]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." index="3" unique_id=1144717080]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, -0.43920302, 0)
+light_energy = 7.0
+spot_range = 8.46891
+spot_angle = 18.326439
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="4" unique_id=1586264128]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7457776, 0)
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="." index="5" unique_id=1753280805]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.9679246, 0)

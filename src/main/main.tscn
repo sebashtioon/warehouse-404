@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bsljbif1rji7e" path="res://src/player/player.tscn" id="1_3eh75"]
 [ext_resource type="Script" uid="uid://jpkbtruvjeku" path="res://src/main/main.gd" id="1_3s6yk"]
-[ext_resource type="PackedScene" uid="uid://yxmkgnxkstnb" path="res://ast/warehouse/model/warehouse.blend" id="3_ab7mr"]
+[ext_resource type="PackedScene" uid="uid://bobd2us7u01lb" path="res://ast/warehouse/actor/warehouse.tscn" id="3_ab7mr"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3eh75"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -30,5 +30,5 @@ environment = SubResource("Environment_ab7mr")
 
 [node name="player" parent="." unique_id=838546913 instance=ExtResource("1_3eh75")]
 
-[node name="warehouse" parent="." unique_id=1654090381 instance=ExtResource("3_ab7mr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.39786887, 0)
+[node name="warehouse" parent="." unique_id=357572645 instance=ExtResource("3_ab7mr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0071353912, -0.38780475, 0.0014061928)
