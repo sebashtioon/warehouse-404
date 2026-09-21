@@ -206,23 +206,23 @@ light_energy = 3.983
 omni_range = 11.448876
 omni_attenuation = 0.903
 
-[node name="ceiling_light4" parent="." index="11" unique_id=494261454 instance=ExtResource("2_2ikh2")]
-transform = Transform3D(2.04, 0, 0, 0, 2.04, 0, 0, 0, 2.04, 7.5377827, 14.15627, -15.752808)
+[node name="ceiling_light8" parent="." index="11" unique_id=16943390 instance=ExtResource("2_2ikh2")]
+transform = Transform3D(2.04, 0, 0, 0, 2.04, 0, 0, 0, 2.04, 0.78484297, 14.033247, -18.736578)
 
-[node name="bulb" parent="ceiling_light4" index="1" unique_id=1271293217]
+[node name="bulb" parent="ceiling_light8" index="1" unique_id=1271293217]
 material_override = SubResource("StandardMaterial3D_j0ycx")
 
-[node name="SpotLight3D" parent="ceiling_light4" index="3" unique_id=1144717080]
+[node name="SpotLight3D" parent="ceiling_light8" index="3" unique_id=1144717080]
 light_energy = 16.0
 spot_range = 16.391317
 spot_attenuation = 0.17
 spot_angle = 13.124165
 
-[node name="OmniLight3D" parent="ceiling_light4" index="4" unique_id=1586264128]
+[node name="OmniLight3D" parent="ceiling_light8" index="4" unique_id=1586264128]
 light_energy = 15.074
 omni_range = 2.1804762
 
-[node name="OmniLight3D2" parent="ceiling_light4" index="5" unique_id=1753280805]
+[node name="OmniLight3D2" parent="ceiling_light8" index="5" unique_id=1753280805]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5898762, 0)
 light_energy = 3.983
 omni_range = 11.448876
@@ -1480,7 +1480,7 @@ transform = Transform3D(-0.016811103, 0, -2.0502174, 0, 2.0502863, 0, 2.0502174,
 [editable path="ceiling_light7"]
 [editable path="ceiling_light3"]
 [editable path="ceiling_light5"]
-[editable path="ceiling_light4"]
+[editable path="ceiling_light8"]
 [editable path="warehouse shelfs/warehouse shelf/cardboard_box2"]
 [editable path="warehouse shelfs/warehouse shelf/cardboard_box3"]
 [editable path="warehouse shelfs/warehouse shelf/cardboard_box4"]
