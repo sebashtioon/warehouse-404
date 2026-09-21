@@ -103,4 +103,3 @@ func _process(_delta: float) -> void:
 func _ready() -> void:
 	PlayerGlobal.player = self
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	
