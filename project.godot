@@ -11,12 +11,14 @@ config_version=5
 [application]
 
 config/name="warehouse 404"
+run/main_scene="uid://dlmriqrbgttqf"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
 PlayerGlobal="*uid://eyywqev7vh3l"
+Debug="*uid://d267jijitqcah"
 
 [display]
 
