@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://cwrrncnoeamg3" path="res://ast/models/forklift/actor/forklift_truck.tscn" id="6_y3wmq"]
 [ext_resource type="Shader" uid="uid://csiesfkg5cu8b" path="res://ast/models/warehouse/actor/warehouse.gdshader" id="7_rbtgy"]
 [ext_resource type="Texture2D" uid="uid://f0xbquua611a" path="res://ast/textures/hazard.webp" id="8_2xa0y"]
+[ext_resource type="Texture2D" uid="uid://cbimkd2g4v77g" path="res://ast/textures/garagedoor.jpg" id="9_d50c1"]
+[ext_resource type="PackedScene" uid="uid://chp4spgbgsnt7" path="res://ast/models/ceiling light/actor/exit_sign.tscn" id="10_f7u6m"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_c1elt"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -64,10 +66,6 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_y3wmq")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j0ycx"]
-emission_enabled = true
-emission = Color(1, 1, 1, 1)
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sb4vr"]
 render_priority = 0
 shader = ExtResource("7_rbtgy")
@@ -82,6 +80,15 @@ size = Vector3(0.68847656, 6.3703613, 0.65319824)
 
 [sub_resource type="BoxMesh" id="BoxMesh_2xa0y"]
 size = Vector3(0.68847656, 11.068481, 0.65319824)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nhlo8"]
+albedo_texture = ExtResource("9_d50c1")
+emission_enabled = true
+emission = Color(0.07683582, 0.07683582, 0.07683582, 1)
+uv1_scale = Vector3(1.88, 1.47, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_8xryq"]
+size = Vector3(10.151855, 7.0352173, 1)
 
 [node name="warehouse" unique_id=357572645 instance=ExtResource("1_c1elt")]
 
@@ -1365,15 +1372,6 @@ transform = Transform3D(-0.016811103, 0, -2.0502174, 0, 2.0502863, 0, 2.0502174,
 [node name="ceiling_light2" parent="ceiling lights" index="0" unique_id=679925041 instance=ExtResource("2_2ikh2")]
 transform = Transform3D(2.04, 0, 0, 0, 2.04, 0, 0, 0, 2.04, 13.698334, 11.955995, 4.927603)
 
-[node name="bulb" parent="ceiling lights/ceiling_light2" index="1" unique_id=610206384]
-material_override = SubResource("StandardMaterial3D_j0ycx")
-
-[node name="SpotLight3D" parent="ceiling lights/ceiling_light2" index="3" unique_id=1144717080]
-light_energy = 16.0
-spot_range = 16.391317
-spot_attenuation = 0.17
-spot_angle = 13.124165
-
 [node name="OmniLight3D" parent="ceiling lights/ceiling_light2" index="4" unique_id=1586264128]
 light_energy = 15.074
 omni_range = 2.1804762
@@ -1386,15 +1384,6 @@ omni_attenuation = 0.903
 
 [node name="ceiling_light6" parent="ceiling lights" index="1" unique_id=1831165564 instance=ExtResource("2_2ikh2")]
 transform = Transform3D(2.04, 0, 0, 0, 2.04, 0, 0, 0, 2.04, -1.2633667, 11.955995, -0.49373388)
-
-[node name="bulb" parent="ceiling lights/ceiling_light6" index="1" unique_id=610206384]
-material_override = SubResource("StandardMaterial3D_j0ycx")
-
-[node name="SpotLight3D" parent="ceiling lights/ceiling_light6" index="3" unique_id=1144717080]
-light_energy = 16.0
-spot_range = 16.391317
-spot_attenuation = 0.17
-spot_angle = 13.124165
 
 [node name="OmniLight3D" parent="ceiling lights/ceiling_light6" index="4" unique_id=1586264128]
 light_energy = 15.074
@@ -1409,15 +1398,6 @@ omni_attenuation = 0.903
 [node name="ceiling_light7" parent="ceiling lights" index="2" unique_id=1461094643 instance=ExtResource("2_2ikh2")]
 transform = Transform3D(2.04, 0, 0, 0, 2.04, 0, 0, 0, 2.04, -24.66877, 11.955995, -5.147209)
 
-[node name="bulb" parent="ceiling lights/ceiling_light7" index="1" unique_id=610206384]
-material_override = SubResource("StandardMaterial3D_j0ycx")
-
-[node name="SpotLight3D" parent="ceiling lights/ceiling_light7" index="3" unique_id=1144717080]
-light_energy = 16.0
-spot_range = 16.391317
-spot_attenuation = 0.17
-spot_angle = 13.124165
-
 [node name="OmniLight3D" parent="ceiling lights/ceiling_light7" index="4" unique_id=1586264128]
 light_energy = 15.074
 omni_range = 2.1804762
@@ -1430,15 +1410,6 @@ omni_attenuation = 0.903
 
 [node name="ceiling_light3" parent="ceiling lights" index="3" unique_id=1482555007 instance=ExtResource("2_2ikh2")]
 transform = Transform3D(2.04, 0, 0, 0, 2.04, 0, 0, 0, 2.04, -5.347349, 13.293952, 14.63533)
-
-[node name="bulb" parent="ceiling lights/ceiling_light3" index="1" unique_id=610206384]
-material_override = SubResource("StandardMaterial3D_j0ycx")
-
-[node name="SpotLight3D" parent="ceiling lights/ceiling_light3" index="3" unique_id=1144717080]
-light_energy = 16.0
-spot_range = 16.391317
-spot_attenuation = 0.17
-spot_angle = 13.124165
 
 [node name="OmniLight3D" parent="ceiling lights/ceiling_light3" index="4" unique_id=1586264128]
 light_energy = 15.074
@@ -1453,15 +1424,6 @@ omni_attenuation = 0.903
 [node name="ceiling_light5" parent="ceiling lights" index="4" unique_id=952095249 instance=ExtResource("2_2ikh2")]
 transform = Transform3D(2.04, 0, 0, 0, 2.04, 0, 0, 0, 2.04, 29.32364, 12.004945, -13.776394)
 
-[node name="bulb" parent="ceiling lights/ceiling_light5" index="1" unique_id=610206384]
-material_override = SubResource("StandardMaterial3D_j0ycx")
-
-[node name="SpotLight3D" parent="ceiling lights/ceiling_light5" index="3" unique_id=1144717080]
-light_energy = 16.0
-spot_range = 16.391317
-spot_attenuation = 0.17
-spot_angle = 13.124165
-
 [node name="OmniLight3D" parent="ceiling lights/ceiling_light5" index="4" unique_id=1586264128]
 light_energy = 15.074
 omni_range = 2.1804762
@@ -1474,15 +1436,6 @@ omni_attenuation = 0.903
 
 [node name="ceiling_light8" parent="ceiling lights" index="5" unique_id=16943390 instance=ExtResource("2_2ikh2")]
 transform = Transform3D(2.04, 0, 0, 0, 2.04, 0, 0, 0, 2.04, 0.78484297, 14.033247, -18.736578)
-
-[node name="bulb" parent="ceiling lights/ceiling_light8" index="1" unique_id=610206384]
-material_override = SubResource("StandardMaterial3D_j0ycx")
-
-[node name="SpotLight3D" parent="ceiling lights/ceiling_light8" index="3" unique_id=1144717080]
-light_energy = 16.0
-spot_range = 16.391317
-spot_attenuation = 0.17
-spot_angle = 13.124165
 
 [node name="OmniLight3D" parent="ceiling lights/ceiling_light8" index="4" unique_id=1586264128]
 light_energy = 15.074
@@ -1511,6 +1464,14 @@ mesh = SubResource("BoxMesh_sb4vr")
 transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0.3844328, 7.1116138, 0.053884506)
 material_override = SubResource("ShaderMaterial_sb4vr")
 mesh = SubResource("BoxMesh_2xa0y")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="end door" index="3" unique_id=990432768]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.53881836, 3.4180603, -0.13658714)
+material_override = SubResource("StandardMaterial3D_nhlo8")
+mesh = SubResource("BoxMesh_8xryq")
+
+[node name="ceiling_light" parent="." index="10" unique_id=1169044519 instance=ExtResource("10_f7u6m")]
+transform = Transform3D(-6.8408326e-08, 0, -1.565, 0, 1.565, 0, 1.565, 0, -6.8408326e-08, 0.28396177, 10.045424, -22.789186)
 
 [editable path="warehouse shelfs/warehouse shelf/cardboard_box2"]
 [editable path="warehouse shelfs/warehouse shelf/cardboard_box3"]

@@ -112,13 +112,13 @@ shadow_mesh = SubResource("ArrayMesh_euruk")
 
 [node name="ceiling_light" unique_id=679925041 instance=ExtResource("1_8tggg")]
 
-[node name="beam" parent="." index="0" unique_id=1295998436]
+[node name="beam" parent="." index="0" unique_id=314465513]
 mesh = SubResource("ArrayMesh_v4lfq")
 
-[node name="bulb" parent="." index="1" unique_id=1271293217]
+[node name="bulb" parent="." index="1" unique_id=610206384]
 mesh = SubResource("ArrayMesh_ldh03")
 
-[node name="cover" parent="." index="2" unique_id=1984401779]
+[node name="cover" parent="." index="2" unique_id=698026444]
 mesh = SubResource("ArrayMesh_7ovr3")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="." index="3" unique_id=1144717080]
