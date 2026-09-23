@@ -1,11 +1,13 @@
 [gd_scene format=4 uid="uid://bobd2us7u01lb"]
 
-[ext_resource type="PackedScene" uid="uid://yxmkgnxkstnb" path="res://ast/warehouse/model/warehouse.blend" id="1_c1elt"]
-[ext_resource type="PackedScene" uid="uid://byato6cdnqrsh" path="res://ast/ceiling light/actor/ceiling_light.tscn" id="2_2ikh2"]
-[ext_resource type="PackedScene" uid="uid://dwva80nldxlsi" path="res://ast/warehouse shelf/warehouse shelf.blend" id="3_j0ycx"]
-[ext_resource type="PackedScene" uid="uid://clf2r3085p34h" path="res://ast/cardboard box/cardboard_box.blend" id="4_ilctt"]
+[ext_resource type="PackedScene" uid="uid://yxmkgnxkstnb" path="res://ast/models/warehouse/model/warehouse.blend" id="1_c1elt"]
+[ext_resource type="PackedScene" uid="uid://byato6cdnqrsh" path="res://ast/models/ceiling light/actor/ceiling_light.tscn" id="2_2ikh2"]
+[ext_resource type="PackedScene" uid="uid://dwva80nldxlsi" path="res://ast/models/warehouse shelf/warehouse shelf.blend" id="3_j0ycx"]
+[ext_resource type="PackedScene" uid="uid://clf2r3085p34h" path="res://ast/models/cardboard box/cardboard_box.blend" id="4_ilctt"]
 [ext_resource type="Material" uid="uid://g5fr5n462mx7" path="res://res/mat/cardboardbox.tres" id="5_25myv"]
-[ext_resource type="PackedScene" uid="uid://cwrrncnoeamg3" path="res://ast/forklift/actor/forklift_truck.tscn" id="6_y3wmq"]
+[ext_resource type="PackedScene" uid="uid://cwrrncnoeamg3" path="res://ast/models/forklift/actor/forklift_truck.tscn" id="6_y3wmq"]
+[ext_resource type="Shader" uid="uid://csiesfkg5cu8b" path="res://ast/models/warehouse/actor/warehouse.gdshader" id="7_rbtgy"]
+[ext_resource type="Texture2D" uid="uid://f0xbquua611a" path="res://ast/textures/hazard.webp" id="8_2xa0y"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_c1elt"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -27,10 +29,6 @@ albedo_color = Color(0.09746797, 0.09746797, 0.09746789, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sb4vr"]
 size = Vector3(110.55188, 1, 145.25336)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j0ycx"]
-emission_enabled = true
-emission = Color(1, 1, 1, 1)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_y3wmq"]
 _surfaces = [{
@@ -66,6 +64,25 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_y3wmq")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j0ycx"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sb4vr"]
+render_priority = 0
+shader = ExtResource("7_rbtgy")
+shader_parameter/albedo_texture = ExtResource("8_2xa0y")
+shader_parameter/uv_scale = Vector2(-1.105, 5.905)
+shader_parameter/uv_offset = Vector2(5.595, 0)
+shader_parameter/rotation_degrees = 132.995
+shader_parameter/rotation_pivot = Vector2(1.115, 2.705)
+
+[sub_resource type="BoxMesh" id="BoxMesh_sb4vr"]
+size = Vector3(0.68847656, 6.3703613, 0.65319824)
+
+[sub_resource type="BoxMesh" id="BoxMesh_2xa0y"]
+size = Vector3(0.68847656, 11.068481, 0.65319824)
+
 [node name="warehouse" unique_id=357572645 instance=ExtResource("1_c1elt")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." index="0" unique_id=753791447]
@@ -77,158 +94,26 @@ visible = false
 light_color = Color(0, 0, 0, 1)
 shadow_enabled = true
 
-[node name="Cube" parent="." index="2" unique_id=1428347254]
+[node name="Cube" parent="." index="2" unique_id=712387183]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.07227898, -1.9073486e-06, 0.015037537)
 material_override = SubResource("StandardMaterial3D_2ikh2")
 
-[node name="Cube_001" parent="." index="3" unique_id=776994919]
+[node name="Cube_001" parent="." index="3" unique_id=1344968844]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -11.19785, 0)
 material_override = SubResource("StandardMaterial3D_c1elt")
 
-[node name="Cube_002" parent="." index="4" unique_id=1437520825]
+[node name="Cube_002" parent="." index="4" unique_id=1079247616]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -11.19785, 0)
 material_override = SubResource("StandardMaterial3D_c1elt")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." index="5" unique_id=1959282835]
+[node name="floor collision" type="StaticBody3D" parent="." index="5" unique_id=1959282835]
 collision_mask = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0" unique_id=1478094669]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor collision" index="0" unique_id=1478094669]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15960693, -0.10094309, 1.0655212)
 shape = SubResource("BoxShape3D_sb4vr")
 
-[node name="ceiling_light2" parent="." index="6" unique_id=679925041 instance=ExtResource("2_2ikh2")]
-transform = Transform3D(2.04, 0, 0, 0, 2.04, 0, 0, 0, 2.04, 13.698334, 11.955995, 4.927603)
-
-[node name="bulb" parent="ceiling_light2" index="1" unique_id=1271293217]
-material_override = SubResource("StandardMaterial3D_j0ycx")
-
-[node name="SpotLight3D" parent="ceiling_light2" index="3" unique_id=1144717080]
-light_energy = 16.0
-spot_range = 16.391317
-spot_attenuation = 0.17
-spot_angle = 13.124165
-
-[node name="OmniLight3D" parent="ceiling_light2" index="4" unique_id=1586264128]
-light_energy = 15.074
-omni_range = 2.1804762
-
-[node name="OmniLight3D2" parent="ceiling_light2" index="5" unique_id=1753280805]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5898762, 0)
-light_energy = 3.983
-omni_range = 11.448876
-omni_attenuation = 0.903
-
-[node name="ceiling_light6" parent="." index="7" unique_id=1831165564 instance=ExtResource("2_2ikh2")]
-transform = Transform3D(2.04, 0, 0, 0, 2.04, 0, 0, 0, 2.04, -1.2633667, 11.955995, -0.49373388)
-
-[node name="bulb" parent="ceiling_light6" index="1" unique_id=1271293217]
-material_override = SubResource("StandardMaterial3D_j0ycx")
-
-[node name="SpotLight3D" parent="ceiling_light6" index="3" unique_id=1144717080]
-light_energy = 16.0
-spot_range = 16.391317
-spot_attenuation = 0.17
-spot_angle = 13.124165
-
-[node name="OmniLight3D" parent="ceiling_light6" index="4" unique_id=1586264128]
-light_energy = 15.074
-omni_range = 2.1804762
-
-[node name="OmniLight3D2" parent="ceiling_light6" index="5" unique_id=1753280805]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5898762, 0)
-light_energy = 3.983
-omni_range = 11.448876
-omni_attenuation = 0.903
-
-[node name="ceiling_light7" parent="." index="8" unique_id=1461094643 instance=ExtResource("2_2ikh2")]
-transform = Transform3D(2.04, 0, 0, 0, 2.04, 0, 0, 0, 2.04, -24.66877, 11.955995, -5.147209)
-
-[node name="bulb" parent="ceiling_light7" index="1" unique_id=1271293217]
-material_override = SubResource("StandardMaterial3D_j0ycx")
-
-[node name="SpotLight3D" parent="ceiling_light7" index="3" unique_id=1144717080]
-light_energy = 16.0
-spot_range = 16.391317
-spot_attenuation = 0.17
-spot_angle = 13.124165
-
-[node name="OmniLight3D" parent="ceiling_light7" index="4" unique_id=1586264128]
-light_energy = 15.074
-omni_range = 2.1804762
-
-[node name="OmniLight3D2" parent="ceiling_light7" index="5" unique_id=1753280805]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5898762, 0)
-light_energy = 3.983
-omni_range = 11.448876
-omni_attenuation = 0.903
-
-[node name="ceiling_light3" parent="." index="9" unique_id=1482555007 instance=ExtResource("2_2ikh2")]
-transform = Transform3D(2.04, 0, 0, 0, 2.04, 0, 0, 0, 2.04, -5.347349, 13.293952, 14.63533)
-
-[node name="bulb" parent="ceiling_light3" index="1" unique_id=1271293217]
-material_override = SubResource("StandardMaterial3D_j0ycx")
-
-[node name="SpotLight3D" parent="ceiling_light3" index="3" unique_id=1144717080]
-light_energy = 16.0
-spot_range = 16.391317
-spot_attenuation = 0.17
-spot_angle = 13.124165
-
-[node name="OmniLight3D" parent="ceiling_light3" index="4" unique_id=1586264128]
-light_energy = 15.074
-omni_range = 2.1804762
-
-[node name="OmniLight3D2" parent="ceiling_light3" index="5" unique_id=1753280805]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5898762, 0)
-light_energy = 3.983
-omni_range = 11.448876
-omni_attenuation = 0.903
-
-[node name="ceiling_light5" parent="." index="10" unique_id=952095249 instance=ExtResource("2_2ikh2")]
-transform = Transform3D(2.04, 0, 0, 0, 2.04, 0, 0, 0, 2.04, 29.32364, 12.004945, -13.776394)
-
-[node name="bulb" parent="ceiling_light5" index="1" unique_id=1271293217]
-material_override = SubResource("StandardMaterial3D_j0ycx")
-
-[node name="SpotLight3D" parent="ceiling_light5" index="3" unique_id=1144717080]
-light_energy = 16.0
-spot_range = 16.391317
-spot_attenuation = 0.17
-spot_angle = 13.124165
-
-[node name="OmniLight3D" parent="ceiling_light5" index="4" unique_id=1586264128]
-light_energy = 15.074
-omni_range = 2.1804762
-
-[node name="OmniLight3D2" parent="ceiling_light5" index="5" unique_id=1753280805]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5898762, 0)
-light_energy = 3.983
-omni_range = 11.448876
-omni_attenuation = 0.903
-
-[node name="ceiling_light8" parent="." index="11" unique_id=16943390 instance=ExtResource("2_2ikh2")]
-transform = Transform3D(2.04, 0, 0, 0, 2.04, 0, 0, 0, 2.04, 0.78484297, 14.033247, -18.736578)
-
-[node name="bulb" parent="ceiling_light8" index="1" unique_id=1271293217]
-material_override = SubResource("StandardMaterial3D_j0ycx")
-
-[node name="SpotLight3D" parent="ceiling_light8" index="3" unique_id=1144717080]
-light_energy = 16.0
-spot_range = 16.391317
-spot_attenuation = 0.17
-spot_angle = 13.124165
-
-[node name="OmniLight3D" parent="ceiling_light8" index="4" unique_id=1586264128]
-light_energy = 15.074
-omni_range = 2.1804762
-
-[node name="OmniLight3D2" parent="ceiling_light8" index="5" unique_id=1753280805]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5898762, 0)
-light_energy = 3.983
-omni_range = 11.448876
-omni_attenuation = 0.903
-
-[node name="warehouse shelfs" type="Node3D" parent="." index="12" unique_id=2134287889]
+[node name="warehouse shelfs" type="Node3D" parent="." index="6" unique_id=2134287889]
 
 [node name="warehouse shelf" parent="warehouse shelfs" index="0" unique_id=2020051954 instance=ExtResource("3_j0ycx")]
 transform = Transform3D(0.007831254, 0, 0.6738742, 0, 0.67391974, 0, -0.6738742, 0, 0.007831254, 13.8135605, 0.37157536, 10.814373)
@@ -236,46 +121,46 @@ transform = Transform3D(0.007831254, 0, 0.6738742, 0, 0.67391974, 0, -0.6738742,
 [node name="cardboard_box2" parent="warehouse shelfs/warehouse shelf" index="14" unique_id=939989726 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.03618887, 0, -0.90442866, 0, 0.9051524, 0, 0.90442866, 0, 0.03618887, -1.4771833, 1.4889512, 2.670784)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf/cardboard_box2" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf/cardboard_box2" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf/cardboard_box2" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf/cardboard_box2" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box3" parent="warehouse shelfs/warehouse shelf" index="15" unique_id=1305874224 instance=ExtResource("4_ilctt")]
 transform = Transform3D(-0.17001674, 0, -0.8890417, 0, 0.90515226, 0, 0.8890417, 0, -0.17001674, -1.5053988, 1.4889512, 0.24274635)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf/cardboard_box3" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf/cardboard_box3" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf/cardboard_box3" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf/cardboard_box3" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box4" parent="warehouse shelfs/warehouse shelf" index="16" unique_id=575643865 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.14860255, 0, -0.8928707, 0, 0.9051522, 0, 0.8928707, 0, 0.14860255, -1.5438662, 1.4889512, -3.0673008)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf/cardboard_box4" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf/cardboard_box4" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf/cardboard_box4" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf/cardboard_box4" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box5" parent="warehouse shelfs/warehouse shelf" index="17" unique_id=703161470 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.14860255, 0, -0.8928707, 0, 0.9051522, 0, 0.8928707, 0, 0.14860255, -1.5727358, 5.1782126, -5.5514393)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf/cardboard_box5" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf/cardboard_box5" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf/cardboard_box5" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf/cardboard_box5" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box6" parent="warehouse shelfs/warehouse shelf" index="18" unique_id=1984603840 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.545698, 0, 0.8925122, 0, 1.0461187, 0, -0.8925122, 0, 0.545698, -1.487319, 5.3401704, 1.7985897)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf/cardboard_box6" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf/cardboard_box6" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf/cardboard_box6" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf/cardboard_box6" index="1" unique_id=237147908]
 visible = false
 
 [node name="warehouse shelf2" parent="warehouse shelfs" index="1" unique_id=483065211 instance=ExtResource("3_j0ycx")]
@@ -284,38 +169,38 @@ transform = Transform3D(0.53315914, 0, -0.41220027, 0, 0.67391974, 0, 0.41220027
 [node name="cardboard_box2" parent="warehouse shelfs/warehouse shelf2" index="14" unique_id=1027362493 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.03618887, 0, -0.90442866, 0, 0.9051524, 0, 0.90442866, 0, 0.03618887, -1.4771833, 1.4889512, 2.670784)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf2/cardboard_box2" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf2/cardboard_box2" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf2/cardboard_box2" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf2/cardboard_box2" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box4" parent="warehouse shelfs/warehouse shelf2" index="15" unique_id=1646850018 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.14860255, 0, -0.8928707, 0, 0.9051522, 0, 0.8928707, 0, 0.14860255, -1.5438662, 1.4889512, -3.0673008)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf2/cardboard_box4" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf2/cardboard_box4" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf2/cardboard_box4" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf2/cardboard_box4" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box5" parent="warehouse shelfs/warehouse shelf2" index="16" unique_id=325422786 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.14860255, 0, -0.8928707, 0, 0.9051522, 0, 0.8928707, 0, 0.14860255, -1.5727358, 5.1782126, -5.5514393)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf2/cardboard_box5" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf2/cardboard_box5" index="0" unique_id=590870864]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.2351637, 0)
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf2/cardboard_box5" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf2/cardboard_box5" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box6" parent="warehouse shelfs/warehouse shelf2" index="17" unique_id=2006253081 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.545698, 0, 0.8925122, 0, 1.0461187, 0, -0.8925122, 0, 0.545698, -1.487319, 5.3401704, 1.7985897)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf2/cardboard_box6" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf2/cardboard_box6" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf2/cardboard_box6" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf2/cardboard_box6" index="1" unique_id=237147908]
 visible = false
 
 [node name="warehouse shelf3" parent="warehouse shelfs" index="2" unique_id=1349741087 instance=ExtResource("3_j0ycx")]
@@ -324,47 +209,47 @@ transform = Transform3D(-0.011653423, 0, -0.6738189, 0, 0.67391974, 0, 0.6738189
 [node name="cardboard_box2" parent="warehouse shelfs/warehouse shelf3" index="14" unique_id=1608712413 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.03618887, 0, -0.90442866, 0, 0.9051524, 0, 0.90442866, 0, 0.03618887, -1.4771833, 1.4889512, 2.670784)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf3/cardboard_box2" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf3/cardboard_box2" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf3/cardboard_box2" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf3/cardboard_box2" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box3" parent="warehouse shelfs/warehouse shelf3" index="15" unique_id=1060183791 instance=ExtResource("4_ilctt")]
 transform = Transform3D(-0.17001674, 0, -0.8890417, 0, 0.90515226, 0, 0.8890417, 0, -0.17001674, -1.5053988, 1.4889512, 0.24274635)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf3/cardboard_box3" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf3/cardboard_box3" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf3/cardboard_box3" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf3/cardboard_box3" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box4" parent="warehouse shelfs/warehouse shelf3" index="16" unique_id=896724663 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.14860255, 0, -0.8928707, 0, 0.9051522, 0, 0.8928707, 0, 0.14860255, -1.5438662, 1.4889512, -3.0673008)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf3/cardboard_box4" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf3/cardboard_box4" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf3/cardboard_box4" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf3/cardboard_box4" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box5" parent="warehouse shelfs/warehouse shelf3" index="17" unique_id=1003807921 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.14860255, 0, -0.8928707, 0, 0.9051522, 0, 0.8928707, 0, 0.14860255, -1.5727358, 5.1782126, -5.5514393)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf3/cardboard_box5" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf3/cardboard_box5" index="0" unique_id=590870864]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0552316, 0, 1.4154003)
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf3/cardboard_box5" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf3/cardboard_box5" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box6" parent="warehouse shelfs/warehouse shelf3" index="18" unique_id=2146805614 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.545698, 0, 0.8925122, 0, 1.0461187, 0, -0.8925122, 0, 0.545698, -1.487319, 9.141082, 1.7985897)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf3/cardboard_box6" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf3/cardboard_box6" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf3/cardboard_box6" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf3/cardboard_box6" index="1" unique_id=237147908]
 visible = false
 
 [node name="warehouse shelf4" parent="warehouse shelfs" index="3" unique_id=571278721 instance=ExtResource("3_j0ycx")]
@@ -373,46 +258,46 @@ transform = Transform3D(0.48746458, 0, 0.4653451, 0, 0.6739198, 0, -0.4653451, 0
 [node name="cardboard_box2" parent="warehouse shelfs/warehouse shelf4" index="14" unique_id=2081296866 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.03618887, 0, -0.90442866, 0, 0.9051524, 0, 0.90442866, 0, 0.03618887, -1.4771833, 1.4889512, 2.670784)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf4/cardboard_box2" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf4/cardboard_box2" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf4/cardboard_box2" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf4/cardboard_box2" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box3" parent="warehouse shelfs/warehouse shelf4" index="15" unique_id=690076385 instance=ExtResource("4_ilctt")]
 transform = Transform3D(-0.17001674, 0, -0.8890417, 0, 0.90515226, 0, 0.8890417, 0, -0.17001674, -1.5053988, 1.4889512, 0.24274635)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf4/cardboard_box3" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf4/cardboard_box3" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf4/cardboard_box3" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf4/cardboard_box3" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box4" parent="warehouse shelfs/warehouse shelf4" index="16" unique_id=358738919 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.14860255, 0, -0.8928707, 0, 0.9051522, 0, 0.8928707, 0, 0.14860255, -1.5438662, 1.4889512, -3.0673008)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf4/cardboard_box4" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf4/cardboard_box4" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf4/cardboard_box4" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf4/cardboard_box4" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box5" parent="warehouse shelfs/warehouse shelf4" index="17" unique_id=1362697298 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.14860255, 0, -0.8928707, 0, 0.9051522, 0, 0.8928707, 0, 0.14860255, -1.5727358, 5.1782126, -5.5514393)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf4/cardboard_box5" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf4/cardboard_box5" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf4/cardboard_box5" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf4/cardboard_box5" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box6" parent="warehouse shelfs/warehouse shelf4" index="18" unique_id=1628877173 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.545698, 0, 0.8925122, 0, 1.0461187, 0, -0.8925122, 0, 0.545698, -1.487319, 5.3401704, 1.7985897)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf4/cardboard_box6" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf4/cardboard_box6" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf4/cardboard_box6" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf4/cardboard_box6" index="1" unique_id=237147908]
 visible = false
 
 [node name="warehouse shelf7" parent="warehouse shelfs" index="4" unique_id=1535625139 instance=ExtResource("3_j0ycx")]
@@ -421,46 +306,46 @@ transform = Transform3D(0.035291433, 0, 0.67299503, 0, 0.6739198, 0, -0.67299503
 [node name="cardboard_box2" parent="warehouse shelfs/warehouse shelf7" index="14" unique_id=1825609675 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.03618887, 0, -0.90442866, 0, 0.9051524, 0, 0.90442866, 0, 0.03618887, -1.4771833, 1.4889512, 2.670784)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf7/cardboard_box2" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf7/cardboard_box2" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf7/cardboard_box2" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf7/cardboard_box2" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box3" parent="warehouse shelfs/warehouse shelf7" index="15" unique_id=1484052356 instance=ExtResource("4_ilctt")]
 transform = Transform3D(-0.17001674, 0, -0.8890417, 0, 0.90515226, 0, 0.8890417, 0, -0.17001674, -1.5053988, 1.4889512, 0.24274635)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf7/cardboard_box3" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf7/cardboard_box3" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf7/cardboard_box3" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf7/cardboard_box3" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box4" parent="warehouse shelfs/warehouse shelf7" index="16" unique_id=169648725 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.14860255, 0, -0.8928707, 0, 0.9051522, 0, 0.8928707, 0, 0.14860255, -1.5438662, 1.4889512, -3.0673008)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf7/cardboard_box4" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf7/cardboard_box4" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf7/cardboard_box4" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf7/cardboard_box4" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box5" parent="warehouse shelfs/warehouse shelf7" index="17" unique_id=1027631703 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.14860255, 0, -0.8928707, 0, 0.9051522, 0, 0.8928707, 0, 0.14860255, -1.5727358, 5.1782126, -5.5514393)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf7/cardboard_box5" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf7/cardboard_box5" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf7/cardboard_box5" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf7/cardboard_box5" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box6" parent="warehouse shelfs/warehouse shelf7" index="18" unique_id=1440959687 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.545698, 0, 0.8925122, 0, 1.0461187, 0, -0.8925122, 0, 0.545698, -1.487319, 5.3401704, 1.7985897)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf7/cardboard_box6" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf7/cardboard_box6" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf7/cardboard_box6" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf7/cardboard_box6" index="1" unique_id=237147908]
 visible = false
 
 [node name="warehouse shelf20" parent="warehouse shelfs" index="5" unique_id=357376179 instance=ExtResource("3_j0ycx")]
@@ -469,46 +354,46 @@ transform = Transform3D(0.035291433, 0, 0.67299503, 0, 0.6739198, 0, -0.67299503
 [node name="cardboard_box2" parent="warehouse shelfs/warehouse shelf20" index="14" unique_id=532881480 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.03618887, 0, -0.90442866, 0, 0.9051524, 0, 0.90442866, 0, 0.03618887, -1.4771833, 1.4889512, 2.670784)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf20/cardboard_box2" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf20/cardboard_box2" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf20/cardboard_box2" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf20/cardboard_box2" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box3" parent="warehouse shelfs/warehouse shelf20" index="15" unique_id=1541282242 instance=ExtResource("4_ilctt")]
 transform = Transform3D(-0.17001674, 0, -0.8890417, 0, 0.90515226, 0, 0.8890417, 0, -0.17001674, -1.5053988, 1.4889512, 0.24274635)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf20/cardboard_box3" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf20/cardboard_box3" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf20/cardboard_box3" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf20/cardboard_box3" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box4" parent="warehouse shelfs/warehouse shelf20" index="16" unique_id=1040910163 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.14860255, 0, -0.8928707, 0, 0.9051522, 0, 0.8928707, 0, 0.14860255, -1.5438662, 1.4889512, -3.0673008)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf20/cardboard_box4" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf20/cardboard_box4" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf20/cardboard_box4" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf20/cardboard_box4" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box5" parent="warehouse shelfs/warehouse shelf20" index="17" unique_id=1298495712 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.14860255, 0, -0.8928707, 0, 0.9051522, 0, 0.8928707, 0, 0.14860255, -1.5727358, 5.1782126, -5.5514393)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf20/cardboard_box5" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf20/cardboard_box5" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf20/cardboard_box5" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf20/cardboard_box5" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box6" parent="warehouse shelfs/warehouse shelf20" index="18" unique_id=1998671390 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.545698, 0, 0.8925122, 0, 1.0461187, 0, -0.8925122, 0, 0.545698, -1.487319, 5.3401704, 1.7985897)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf20/cardboard_box6" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf20/cardboard_box6" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf20/cardboard_box6" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf20/cardboard_box6" index="1" unique_id=237147908]
 visible = false
 
 [node name="warehouse shelf21" parent="warehouse shelfs" index="6" unique_id=1277278301 instance=ExtResource("3_j0ycx")]
@@ -517,46 +402,46 @@ transform = Transform3D(-0.16507377, 0, 0.65339, 0, 0.67391986, 0, -0.65339, 0, 
 [node name="cardboard_box2" parent="warehouse shelfs/warehouse shelf21" index="14" unique_id=1357237428 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.03618887, 0, -0.90442866, 0, 0.9051524, 0, 0.90442866, 0, 0.03618887, -1.4771833, 1.4889512, 2.670784)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf21/cardboard_box2" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf21/cardboard_box2" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf21/cardboard_box2" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf21/cardboard_box2" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box3" parent="warehouse shelfs/warehouse shelf21" index="15" unique_id=1160008623 instance=ExtResource("4_ilctt")]
 transform = Transform3D(-0.17001674, 0, -0.8890417, 0, 0.90515226, 0, 0.8890417, 0, -0.17001674, -1.5053988, 1.4889512, 0.24274635)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf21/cardboard_box3" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf21/cardboard_box3" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf21/cardboard_box3" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf21/cardboard_box3" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box4" parent="warehouse shelfs/warehouse shelf21" index="16" unique_id=203237251 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.14860255, 0, -0.8928707, 0, 0.9051522, 0, 0.8928707, 0, 0.14860255, -1.5438662, 1.4889512, -3.0673008)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf21/cardboard_box4" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf21/cardboard_box4" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf21/cardboard_box4" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf21/cardboard_box4" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box5" parent="warehouse shelfs/warehouse shelf21" index="17" unique_id=478832303 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.14860255, 0, -0.8928707, 0, 0.9051522, 0, 0.8928707, 0, 0.14860255, -1.5727358, 5.1782126, -5.5514393)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf21/cardboard_box5" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf21/cardboard_box5" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf21/cardboard_box5" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf21/cardboard_box5" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box6" parent="warehouse shelfs/warehouse shelf21" index="18" unique_id=468701759 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.545698, 0, 0.8925122, 0, 1.0461187, 0, -0.8925122, 0, 0.545698, -1.487319, 5.3401704, 1.7985897)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf21/cardboard_box6" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf21/cardboard_box6" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf21/cardboard_box6" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf21/cardboard_box6" index="1" unique_id=237147908]
 visible = false
 
 [node name="warehouse shelf22" parent="warehouse shelfs" index="7" unique_id=781822332 instance=ExtResource("3_j0ycx")]
@@ -565,46 +450,46 @@ transform = Transform3D(-0.16507377, 0, 0.65339, 0, 0.67391986, 0, -0.65339, 0, 
 [node name="cardboard_box2" parent="warehouse shelfs/warehouse shelf22" index="14" unique_id=487574479 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.03618887, 0, -0.90442866, 0, 0.9051524, 0, 0.90442866, 0, 0.03618887, -1.4771833, 1.4889512, 2.670784)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf22/cardboard_box2" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf22/cardboard_box2" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf22/cardboard_box2" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf22/cardboard_box2" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box3" parent="warehouse shelfs/warehouse shelf22" index="15" unique_id=1915726532 instance=ExtResource("4_ilctt")]
 transform = Transform3D(-0.17001674, 0, -0.8890417, 0, 0.90515226, 0, 0.8890417, 0, -0.17001674, -1.5053988, 1.4889512, 0.24274635)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf22/cardboard_box3" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf22/cardboard_box3" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf22/cardboard_box3" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf22/cardboard_box3" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box4" parent="warehouse shelfs/warehouse shelf22" index="16" unique_id=856437578 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.14860255, 0, -0.8928707, 0, 0.9051522, 0, 0.8928707, 0, 0.14860255, -1.5438662, 1.4889512, -3.0673008)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf22/cardboard_box4" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf22/cardboard_box4" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf22/cardboard_box4" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf22/cardboard_box4" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box5" parent="warehouse shelfs/warehouse shelf22" index="17" unique_id=1352794310 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.14860255, 0, -0.8928707, 0, 0.9051522, 0, 0.8928707, 0, 0.14860255, -1.5727358, 5.1782126, -5.5514393)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf22/cardboard_box5" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf22/cardboard_box5" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf22/cardboard_box5" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf22/cardboard_box5" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box6" parent="warehouse shelfs/warehouse shelf22" index="18" unique_id=1186346072 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.545698, 0, 0.8925122, 0, 1.0461187, 0, -0.8925122, 0, 0.545698, -1.487319, 5.3401704, 1.7985897)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf22/cardboard_box6" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf22/cardboard_box6" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf22/cardboard_box6" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf22/cardboard_box6" index="1" unique_id=237147908]
 visible = false
 
 [node name="warehouse shelf5" parent="warehouse shelfs" index="8" unique_id=261659540 instance=ExtResource("3_j0ycx")]
@@ -613,38 +498,38 @@ transform = Transform3D(0.077777624, 0, -0.6694164, 0, 0.67391974, 0, 0.6694164,
 [node name="cardboard_box2" parent="warehouse shelfs/warehouse shelf5" index="14" unique_id=148081240 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.03618887, 0, -0.90442866, 0, 0.9051524, 0, 0.90442866, 0, 0.03618887, -1.4771833, 1.4889512, 2.670784)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf5/cardboard_box2" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf5/cardboard_box2" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf5/cardboard_box2" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf5/cardboard_box2" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box4" parent="warehouse shelfs/warehouse shelf5" index="15" unique_id=240255113 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.14860255, 0, -0.8928707, 0, 0.9051522, 0, 0.8928707, 0, 0.14860255, -1.5438662, 1.4889512, -3.0673008)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf5/cardboard_box4" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf5/cardboard_box4" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf5/cardboard_box4" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf5/cardboard_box4" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box5" parent="warehouse shelfs/warehouse shelf5" index="16" unique_id=821220412 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.14860255, 0, -0.8928707, 0, 0.9051522, 0, 0.8928707, 0, 0.14860255, -1.5727358, 5.1782126, -5.5514393)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf5/cardboard_box5" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf5/cardboard_box5" index="0" unique_id=590870864]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.2351637, 0)
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf5/cardboard_box5" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf5/cardboard_box5" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box6" parent="warehouse shelfs/warehouse shelf5" index="17" unique_id=298556784 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.545698, 0, 0.8925122, 0, 1.0461187, 0, -0.8925122, 0, 0.545698, -1.487319, 5.3401704, 1.7985897)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf5/cardboard_box6" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf5/cardboard_box6" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf5/cardboard_box6" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf5/cardboard_box6" index="1" unique_id=237147908]
 visible = false
 
 [node name="warehouse shelf14" parent="warehouse shelfs" index="9" unique_id=776758544 instance=ExtResource("3_j0ycx")]
@@ -653,38 +538,38 @@ transform = Transform3D(-0.5331591, 0, 0.41220033, 0, 0.67391974, 0, -0.41220033
 [node name="cardboard_box2" parent="warehouse shelfs/warehouse shelf14" index="14" unique_id=1697183397 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.03618887, 0, -0.90442866, 0, 0.9051524, 0, 0.90442866, 0, 0.03618887, -1.4771833, 1.4889512, 2.670784)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf14/cardboard_box2" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf14/cardboard_box2" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf14/cardboard_box2" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf14/cardboard_box2" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box4" parent="warehouse shelfs/warehouse shelf14" index="15" unique_id=2108195513 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.14860255, 0, -0.8928707, 0, 0.9051522, 0, 0.8928707, 0, 0.14860255, -1.5438662, 1.4889512, -3.0673008)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf14/cardboard_box4" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf14/cardboard_box4" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf14/cardboard_box4" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf14/cardboard_box4" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box5" parent="warehouse shelfs/warehouse shelf14" index="16" unique_id=24566816 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.14860255, 0, -0.8928707, 0, 0.9051522, 0, 0.8928707, 0, 0.14860255, -1.5727358, 5.1782126, -5.5514393)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf14/cardboard_box5" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf14/cardboard_box5" index="0" unique_id=590870864]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.2351637, 0)
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf14/cardboard_box5" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf14/cardboard_box5" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box6" parent="warehouse shelfs/warehouse shelf14" index="17" unique_id=615523318 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.545698, 0, 0.8925122, 0, 1.0461187, 0, -0.8925122, 0, 0.545698, -1.487319, 5.3401704, 1.7985897)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf14/cardboard_box6" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf14/cardboard_box6" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf14/cardboard_box6" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf14/cardboard_box6" index="1" unique_id=237147908]
 visible = false
 
 [node name="warehouse shelf15" parent="warehouse shelfs" index="10" unique_id=242648833 instance=ExtResource("3_j0ycx")]
@@ -693,47 +578,47 @@ transform = Transform3D(0.011653484, 0, 0.6738189, 0, 0.67391974, 0, -0.6738189,
 [node name="cardboard_box2" parent="warehouse shelfs/warehouse shelf15" index="14" unique_id=1688811611 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.03618887, 0, -0.90442866, 0, 0.9051524, 0, 0.90442866, 0, 0.03618887, -1.4771833, 1.4889512, 2.670784)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf15/cardboard_box2" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf15/cardboard_box2" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf15/cardboard_box2" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf15/cardboard_box2" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box3" parent="warehouse shelfs/warehouse shelf15" index="15" unique_id=2081347174 instance=ExtResource("4_ilctt")]
 transform = Transform3D(-0.17001674, 0, -0.8890417, 0, 0.90515226, 0, 0.8890417, 0, -0.17001674, -1.5053988, 1.4889512, 0.24274635)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf15/cardboard_box3" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf15/cardboard_box3" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf15/cardboard_box3" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf15/cardboard_box3" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box4" parent="warehouse shelfs/warehouse shelf15" index="16" unique_id=280799157 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.14860255, 0, -0.8928707, 0, 0.9051522, 0, 0.8928707, 0, 0.14860255, -1.5438662, 1.4889512, -3.0673008)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf15/cardboard_box4" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf15/cardboard_box4" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf15/cardboard_box4" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf15/cardboard_box4" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box5" parent="warehouse shelfs/warehouse shelf15" index="17" unique_id=1946593245 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.14860255, 0, -0.8928707, 0, 0.9051522, 0, 0.8928707, 0, 0.14860255, -1.5727358, 5.1782126, -5.5514393)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf15/cardboard_box5" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf15/cardboard_box5" index="0" unique_id=590870864]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0552316, 0, 1.4154003)
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf15/cardboard_box5" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf15/cardboard_box5" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box6" parent="warehouse shelfs/warehouse shelf15" index="18" unique_id=596480786 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.545698, 0, 0.8925122, 0, 1.0461187, 0, -0.8925122, 0, 0.545698, -1.487319, 9.141082, 1.7985897)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf15/cardboard_box6" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf15/cardboard_box6" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf15/cardboard_box6" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf15/cardboard_box6" index="1" unique_id=237147908]
 visible = false
 
 [node name="warehouse shelf16" parent="warehouse shelfs" index="11" unique_id=1421335415 instance=ExtResource("3_j0ycx")]
@@ -742,46 +627,46 @@ transform = Transform3D(-0.48746458, 0, -0.4653451, 0, 0.6739198, 0, 0.4653451, 
 [node name="cardboard_box2" parent="warehouse shelfs/warehouse shelf16" index="14" unique_id=159319875 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.03618887, 0, -0.90442866, 0, 0.9051524, 0, 0.90442866, 0, 0.03618887, -1.4771833, 1.4889512, 2.670784)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf16/cardboard_box2" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf16/cardboard_box2" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf16/cardboard_box2" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf16/cardboard_box2" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box3" parent="warehouse shelfs/warehouse shelf16" index="15" unique_id=354357123 instance=ExtResource("4_ilctt")]
 transform = Transform3D(-0.17001674, 0, -0.8890417, 0, 0.90515226, 0, 0.8890417, 0, -0.17001674, -1.5053988, 1.4889512, 0.24274635)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf16/cardboard_box3" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf16/cardboard_box3" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf16/cardboard_box3" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf16/cardboard_box3" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box4" parent="warehouse shelfs/warehouse shelf16" index="16" unique_id=1868020875 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.14860255, 0, -0.8928707, 0, 0.9051522, 0, 0.8928707, 0, 0.14860255, -1.5438662, 1.4889512, -3.0673008)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf16/cardboard_box4" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf16/cardboard_box4" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf16/cardboard_box4" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf16/cardboard_box4" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box5" parent="warehouse shelfs/warehouse shelf16" index="17" unique_id=2043499561 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.14860255, 0, -0.8928707, 0, 0.9051522, 0, 0.8928707, 0, 0.14860255, -1.5727358, 5.1782126, -5.5514393)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf16/cardboard_box5" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf16/cardboard_box5" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf16/cardboard_box5" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf16/cardboard_box5" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box6" parent="warehouse shelfs/warehouse shelf16" index="18" unique_id=161501788 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.545698, 0, 0.8925122, 0, 1.0461187, 0, -0.8925122, 0, 0.545698, -1.487319, 5.3401704, 1.7985897)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf16/cardboard_box6" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf16/cardboard_box6" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf16/cardboard_box6" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf16/cardboard_box6" index="1" unique_id=237147908]
 visible = false
 
 [node name="warehouse shelf17" parent="warehouse shelfs" index="12" unique_id=1644291210 instance=ExtResource("3_j0ycx")]
@@ -790,46 +675,46 @@ transform = Transform3D(-0.035291493, 0, -0.67299503, 0, 0.67391986, 0, 0.672995
 [node name="cardboard_box2" parent="warehouse shelfs/warehouse shelf17" index="14" unique_id=2016548180 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.03618887, 0, -0.90442866, 0, 0.9051524, 0, 0.90442866, 0, 0.03618887, -1.4771833, 1.4889512, 2.670784)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf17/cardboard_box2" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf17/cardboard_box2" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf17/cardboard_box2" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf17/cardboard_box2" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box3" parent="warehouse shelfs/warehouse shelf17" index="15" unique_id=156896856 instance=ExtResource("4_ilctt")]
 transform = Transform3D(-0.17001674, 0, -0.8890417, 0, 0.90515226, 0, 0.8890417, 0, -0.17001674, -1.5053988, 1.4889512, 0.24274635)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf17/cardboard_box3" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf17/cardboard_box3" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf17/cardboard_box3" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf17/cardboard_box3" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box4" parent="warehouse shelfs/warehouse shelf17" index="16" unique_id=2013850268 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.14860255, 0, -0.8928707, 0, 0.9051522, 0, 0.8928707, 0, 0.14860255, -1.5438662, 1.4889512, -3.0673008)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf17/cardboard_box4" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf17/cardboard_box4" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf17/cardboard_box4" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf17/cardboard_box4" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box5" parent="warehouse shelfs/warehouse shelf17" index="17" unique_id=2068252726 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.14860255, 0, -0.8928707, 0, 0.9051522, 0, 0.8928707, 0, 0.14860255, -1.5727358, 5.1782126, -5.5514393)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf17/cardboard_box5" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf17/cardboard_box5" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf17/cardboard_box5" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf17/cardboard_box5" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box6" parent="warehouse shelfs/warehouse shelf17" index="18" unique_id=701515054 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.545698, 0, 0.8925122, 0, 1.0461187, 0, -0.8925122, 0, 0.545698, -1.487319, 5.3401704, 1.7985897)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf17/cardboard_box6" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf17/cardboard_box6" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf17/cardboard_box6" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf17/cardboard_box6" index="1" unique_id=237147908]
 visible = false
 
 [node name="warehouse shelf18" parent="warehouse shelfs" index="13" unique_id=1150086006 instance=ExtResource("3_j0ycx")]
@@ -838,38 +723,38 @@ transform = Transform3D(-0.07777757, 0, 0.6694164, 0, 0.67391974, 0, -0.6694164,
 [node name="cardboard_box2" parent="warehouse shelfs/warehouse shelf18" index="14" unique_id=1773111918 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.03618887, 0, -0.90442866, 0, 0.9051524, 0, 0.90442866, 0, 0.03618887, -1.4771833, 1.4889512, 2.670784)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf18/cardboard_box2" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf18/cardboard_box2" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf18/cardboard_box2" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf18/cardboard_box2" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box4" parent="warehouse shelfs/warehouse shelf18" index="15" unique_id=1174143983 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.14860255, 0, -0.8928707, 0, 0.9051522, 0, 0.8928707, 0, 0.14860255, -1.5438662, 1.4889512, -3.0673008)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf18/cardboard_box4" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf18/cardboard_box4" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf18/cardboard_box4" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf18/cardboard_box4" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box5" parent="warehouse shelfs/warehouse shelf18" index="16" unique_id=370692365 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.14860255, 0, -0.8928707, 0, 0.9051522, 0, 0.8928707, 0, 0.14860255, -1.5727358, 5.1782126, -5.5514393)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf18/cardboard_box5" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf18/cardboard_box5" index="0" unique_id=590870864]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.2351637, 0)
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf18/cardboard_box5" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf18/cardboard_box5" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box6" parent="warehouse shelfs/warehouse shelf18" index="17" unique_id=235423390 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.545698, 0, 0.8925122, 0, 1.0461187, 0, -0.8925122, 0, 0.545698, -1.487319, 5.3401704, 1.7985897)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf18/cardboard_box6" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf18/cardboard_box6" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf18/cardboard_box6" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf18/cardboard_box6" index="1" unique_id=237147908]
 visible = false
 
 [node name="warehouse shelf23" parent="warehouse shelfs" index="14" unique_id=72596650 instance=ExtResource("3_j0ycx")]
@@ -878,38 +763,38 @@ transform = Transform3D(-0.07777757, 0, 0.6694164, 0, 0.67391974, 0, -0.6694164,
 [node name="cardboard_box2" parent="warehouse shelfs/warehouse shelf23" index="14" unique_id=1882511713 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.03618887, 0, -0.90442866, 0, 0.9051524, 0, 0.90442866, 0, 0.03618887, -1.4771833, 1.4889512, 2.670784)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf23/cardboard_box2" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf23/cardboard_box2" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf23/cardboard_box2" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf23/cardboard_box2" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box4" parent="warehouse shelfs/warehouse shelf23" index="15" unique_id=960074402 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.14860255, 0, -0.8928707, 0, 0.9051522, 0, 0.8928707, 0, 0.14860255, -1.5438662, 1.4889512, -3.0673008)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf23/cardboard_box4" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf23/cardboard_box4" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf23/cardboard_box4" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf23/cardboard_box4" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box5" parent="warehouse shelfs/warehouse shelf23" index="16" unique_id=497881572 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.14860255, 0, -0.8928707, 0, 0.9051522, 0, 0.8928707, 0, 0.14860255, -1.5727358, 5.1782126, -5.5514393)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf23/cardboard_box5" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf23/cardboard_box5" index="0" unique_id=590870864]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.2351637, 0)
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf23/cardboard_box5" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf23/cardboard_box5" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box6" parent="warehouse shelfs/warehouse shelf23" index="17" unique_id=1630642952 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.545698, 0, 0.8925122, 0, 1.0461187, 0, -0.8925122, 0, 0.545698, -1.487319, 5.3401704, 1.7985897)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf23/cardboard_box6" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf23/cardboard_box6" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf23/cardboard_box6" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf23/cardboard_box6" index="1" unique_id=237147908]
 visible = false
 
 [node name="warehouse shelf24" parent="warehouse shelfs" index="15" unique_id=1597026397 instance=ExtResource("3_j0ycx")]
@@ -918,38 +803,38 @@ transform = Transform3D(-0.07777757, 0, 0.6694164, 0, 0.67391974, 0, -0.6694164,
 [node name="cardboard_box2" parent="warehouse shelfs/warehouse shelf24" index="14" unique_id=793698496 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.03618887, 0, -0.90442866, 0, 0.9051524, 0, 0.90442866, 0, 0.03618887, -1.4771833, 1.4889512, 2.670784)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf24/cardboard_box2" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf24/cardboard_box2" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf24/cardboard_box2" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf24/cardboard_box2" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box4" parent="warehouse shelfs/warehouse shelf24" index="15" unique_id=352199993 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.14860255, 0, -0.8928707, 0, 0.9051522, 0, 0.8928707, 0, 0.14860255, -1.5438662, 1.4889512, -3.0673008)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf24/cardboard_box4" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf24/cardboard_box4" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf24/cardboard_box4" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf24/cardboard_box4" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box5" parent="warehouse shelfs/warehouse shelf24" index="16" unique_id=1157805004 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.14860255, 0, -0.8928707, 0, 0.9051522, 0, 0.8928707, 0, 0.14860255, -1.5727358, 5.1782126, -5.5514393)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf24/cardboard_box5" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf24/cardboard_box5" index="0" unique_id=590870864]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.2351637, 0)
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf24/cardboard_box5" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf24/cardboard_box5" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box6" parent="warehouse shelfs/warehouse shelf24" index="17" unique_id=1124238350 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.545698, 0, 0.8925122, 0, 1.0461187, 0, -0.8925122, 0, 0.545698, -1.487319, 5.3401704, 1.7985897)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf24/cardboard_box6" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf24/cardboard_box6" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf24/cardboard_box6" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf24/cardboard_box6" index="1" unique_id=237147908]
 visible = false
 
 [node name="warehouse shelf25" parent="warehouse shelfs" index="16" unique_id=715841930 instance=ExtResource("3_j0ycx")]
@@ -958,38 +843,38 @@ transform = Transform3D(-0.07777757, 0, 0.6694164, 0, 0.67391974, 0, -0.6694164,
 [node name="cardboard_box2" parent="warehouse shelfs/warehouse shelf25" index="14" unique_id=732530668 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.03618887, 0, -0.90442866, 0, 0.9051524, 0, 0.90442866, 0, 0.03618887, -1.4771833, 1.4889512, 2.670784)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf25/cardboard_box2" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf25/cardboard_box2" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf25/cardboard_box2" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf25/cardboard_box2" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box4" parent="warehouse shelfs/warehouse shelf25" index="15" unique_id=804096099 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.14860255, 0, -0.8928707, 0, 0.9051522, 0, 0.8928707, 0, 0.14860255, -1.5438662, 1.4889512, -3.0673008)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf25/cardboard_box4" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf25/cardboard_box4" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf25/cardboard_box4" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf25/cardboard_box4" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box5" parent="warehouse shelfs/warehouse shelf25" index="16" unique_id=1844664951 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.14860255, 0, -0.8928707, 0, 0.9051522, 0, 0.8928707, 0, 0.14860255, -1.5727358, 5.1782126, -5.5514393)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf25/cardboard_box5" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf25/cardboard_box5" index="0" unique_id=590870864]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.2351637, 0)
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf25/cardboard_box5" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf25/cardboard_box5" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box6" parent="warehouse shelfs/warehouse shelf25" index="17" unique_id=881242838 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.545698, 0, 0.8925122, 0, 1.0461187, 0, -0.8925122, 0, 0.545698, -1.487319, 5.3401704, 1.7985897)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf25/cardboard_box6" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf25/cardboard_box6" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf25/cardboard_box6" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf25/cardboard_box6" index="1" unique_id=237147908]
 visible = false
 
 [node name="warehouse shelf26" parent="warehouse shelfs" index="17" unique_id=677605458 instance=ExtResource("3_j0ycx")]
@@ -998,38 +883,38 @@ transform = Transform3D(0.5857281, 0, 0.33330205, 0, 0.67391974, 0, -0.33330205,
 [node name="cardboard_box2" parent="warehouse shelfs/warehouse shelf26" index="14" unique_id=345881156 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.03618887, 0, -0.90442866, 0, 0.9051524, 0, 0.90442866, 0, 0.03618887, -1.4771833, 1.4889512, 2.670784)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf26/cardboard_box2" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf26/cardboard_box2" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf26/cardboard_box2" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf26/cardboard_box2" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box4" parent="warehouse shelfs/warehouse shelf26" index="15" unique_id=712057460 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.14860255, 0, -0.8928707, 0, 0.9051522, 0, 0.8928707, 0, 0.14860255, -1.5438662, 1.4889512, -3.0673008)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf26/cardboard_box4" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf26/cardboard_box4" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf26/cardboard_box4" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf26/cardboard_box4" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box5" parent="warehouse shelfs/warehouse shelf26" index="16" unique_id=576388118 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.14860255, 0, -0.8928707, 0, 0.9051522, 0, 0.8928707, 0, 0.14860255, -1.5727358, 5.1782126, -5.5514393)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf26/cardboard_box5" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf26/cardboard_box5" index="0" unique_id=590870864]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.2351637, 0)
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf26/cardboard_box5" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf26/cardboard_box5" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box6" parent="warehouse shelfs/warehouse shelf26" index="17" unique_id=647194875 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.545698, 0, 0.8925122, 0, 1.0461187, 0, -0.8925122, 0, 0.545698, -1.487319, 5.3401704, 1.7985897)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf26/cardboard_box6" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf26/cardboard_box6" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf26/cardboard_box6" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf26/cardboard_box6" index="1" unique_id=237147908]
 visible = false
 
 [node name="warehouse shelf27" parent="warehouse shelfs" index="18" unique_id=1771077572 instance=ExtResource("3_j0ycx")]
@@ -1038,38 +923,38 @@ transform = Transform3D(0.5857281, 0, 0.33330205, 0, 0.67391974, 0, -0.33330205,
 [node name="cardboard_box2" parent="warehouse shelfs/warehouse shelf27" index="14" unique_id=1754049730 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.03618887, 0, -0.90442866, 0, 0.9051524, 0, 0.90442866, 0, 0.03618887, -1.4771833, 1.4889512, 2.670784)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf27/cardboard_box2" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf27/cardboard_box2" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf27/cardboard_box2" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf27/cardboard_box2" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box4" parent="warehouse shelfs/warehouse shelf27" index="15" unique_id=1185810081 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.14860255, 0, -0.8928707, 0, 0.9051522, 0, 0.8928707, 0, 0.14860255, -1.5438662, 1.4889512, -3.0673008)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf27/cardboard_box4" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf27/cardboard_box4" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf27/cardboard_box4" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf27/cardboard_box4" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box5" parent="warehouse shelfs/warehouse shelf27" index="16" unique_id=1356088428 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.14860255, 0, -0.8928707, 0, 0.9051522, 0, 0.8928707, 0, 0.14860255, -1.5727358, 5.1782126, -5.5514393)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf27/cardboard_box5" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf27/cardboard_box5" index="0" unique_id=590870864]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.2351637, 0)
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf27/cardboard_box5" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf27/cardboard_box5" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box6" parent="warehouse shelfs/warehouse shelf27" index="17" unique_id=1357885317 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.545698, 0, 0.8925122, 0, 1.0461187, 0, -0.8925122, 0, 0.545698, -1.487319, 5.3401704, 1.7985897)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf27/cardboard_box6" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf27/cardboard_box6" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf27/cardboard_box6" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf27/cardboard_box6" index="1" unique_id=237147908]
 visible = false
 
 [node name="warehouse shelf6" parent="warehouse shelfs" index="19" unique_id=1224652643 instance=ExtResource("3_j0ycx")]
@@ -1078,47 +963,47 @@ transform = Transform3D(-0.49009618, 0, -0.4625726, 0, 0.67391974, 0, 0.4625726,
 [node name="cardboard_box2" parent="warehouse shelfs/warehouse shelf6" index="14" unique_id=875032630 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.03618887, 0, -0.90442866, 0, 0.9051524, 0, 0.90442866, 0, 0.03618887, -1.4771833, 1.4889512, 2.670784)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf6/cardboard_box2" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf6/cardboard_box2" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf6/cardboard_box2" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf6/cardboard_box2" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box3" parent="warehouse shelfs/warehouse shelf6" index="15" unique_id=364459279 instance=ExtResource("4_ilctt")]
 transform = Transform3D(-0.17001674, 0, -0.8890417, 0, 0.90515226, 0, 0.8890417, 0, -0.17001674, -1.5053988, 1.4889512, 0.24274635)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf6/cardboard_box3" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf6/cardboard_box3" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf6/cardboard_box3" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf6/cardboard_box3" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box4" parent="warehouse shelfs/warehouse shelf6" index="16" unique_id=585030552 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.14860255, 0, -0.8928707, 0, 0.9051522, 0, 0.8928707, 0, 0.14860255, -1.5438662, 1.4889512, -3.0673008)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf6/cardboard_box4" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf6/cardboard_box4" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf6/cardboard_box4" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf6/cardboard_box4" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box5" parent="warehouse shelfs/warehouse shelf6" index="17" unique_id=47759445 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.14860255, 0, -0.8928707, 0, 0.9051522, 0, 0.8928707, 0, 0.14860255, -1.5727358, 5.1782126, -5.5514393)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf6/cardboard_box5" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf6/cardboard_box5" index="0" unique_id=590870864]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0552316, 0, 1.4154003)
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf6/cardboard_box5" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf6/cardboard_box5" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box6" parent="warehouse shelfs/warehouse shelf6" index="18" unique_id=1758455849 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.545698, 0, 0.8925122, 0, 1.0461187, 0, -0.8925122, 0, 0.545698, -1.487319, 9.141082, 1.7985897)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf6/cardboard_box6" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf6/cardboard_box6" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf6/cardboard_box6" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf6/cardboard_box6" index="1" unique_id=237147908]
 visible = false
 
 [node name="warehouse shelf8" parent="warehouse shelfs" index="20" unique_id=69076360 instance=ExtResource("3_j0ycx")]
@@ -1127,47 +1012,47 @@ transform = Transform3D(-0.4847021, 0, -0.46822166, 0, 0.67391974, 0, 0.46822166
 [node name="cardboard_box2" parent="warehouse shelfs/warehouse shelf8" index="14" unique_id=399349550 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.03618887, 0, -0.90442866, 0, 0.9051524, 0, 0.90442866, 0, 0.03618887, -1.4771833, 1.4889512, 2.670784)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf8/cardboard_box2" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf8/cardboard_box2" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf8/cardboard_box2" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf8/cardboard_box2" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box3" parent="warehouse shelfs/warehouse shelf8" index="15" unique_id=1858046187 instance=ExtResource("4_ilctt")]
 transform = Transform3D(-0.17001674, 0, -0.8890417, 0, 0.90515226, 0, 0.8890417, 0, -0.17001674, -1.5053988, 1.4889512, 0.24274635)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf8/cardboard_box3" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf8/cardboard_box3" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf8/cardboard_box3" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf8/cardboard_box3" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box4" parent="warehouse shelfs/warehouse shelf8" index="16" unique_id=991674151 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.14860255, 0, -0.8928707, 0, 0.9051522, 0, 0.8928707, 0, 0.14860255, -1.5438662, 1.4889512, -3.0673008)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf8/cardboard_box4" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf8/cardboard_box4" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf8/cardboard_box4" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf8/cardboard_box4" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box5" parent="warehouse shelfs/warehouse shelf8" index="17" unique_id=631863880 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.14860255, 0, -0.8928707, 0, 0.9051522, 0, 0.8928707, 0, 0.14860255, -1.5727358, 5.1782126, -5.5514393)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf8/cardboard_box5" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf8/cardboard_box5" index="0" unique_id=590870864]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0552316, 0, 1.4154003)
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf8/cardboard_box5" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf8/cardboard_box5" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box6" parent="warehouse shelfs/warehouse shelf8" index="18" unique_id=1710641821 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.545698, 0, 0.8925122, 0, 1.0461187, 0, -0.8925122, 0, 0.545698, -1.487319, 9.141082, 1.7985897)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf8/cardboard_box6" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf8/cardboard_box6" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf8/cardboard_box6" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf8/cardboard_box6" index="1" unique_id=237147908]
 visible = false
 
 [node name="warehouse shelf9" parent="warehouse shelfs" index="21" unique_id=1380249501 instance=ExtResource("3_j0ycx")]
@@ -1176,46 +1061,46 @@ transform = Transform3D(0.6737382, 0, -0.015640736, 0, 0.6739198, 0, 0.015640736
 [node name="cardboard_box2" parent="warehouse shelfs/warehouse shelf9" index="14" unique_id=1112452535 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.03618887, 0, -0.90442866, 0, 0.9051524, 0, 0.90442866, 0, 0.03618887, -1.4771833, 1.4889512, 2.670784)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf9/cardboard_box2" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf9/cardboard_box2" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf9/cardboard_box2" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf9/cardboard_box2" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box3" parent="warehouse shelfs/warehouse shelf9" index="15" unique_id=1928582228 instance=ExtResource("4_ilctt")]
 transform = Transform3D(-0.17001674, 0, -0.8890417, 0, 0.90515226, 0, 0.8890417, 0, -0.17001674, -1.5053988, 1.4889512, 0.24274635)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf9/cardboard_box3" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf9/cardboard_box3" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf9/cardboard_box3" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf9/cardboard_box3" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box4" parent="warehouse shelfs/warehouse shelf9" index="16" unique_id=1811791239 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.14860255, 0, -0.8928707, 0, 0.9051522, 0, 0.8928707, 0, 0.14860255, -1.5438662, 1.4889512, -3.0673008)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf9/cardboard_box4" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf9/cardboard_box4" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf9/cardboard_box4" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf9/cardboard_box4" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box5" parent="warehouse shelfs/warehouse shelf9" index="17" unique_id=2040735256 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.14860255, 0, -0.8928707, 0, 0.9051522, 0, 0.8928707, 0, 0.14860255, -1.5727358, 5.1782126, -5.5514393)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf9/cardboard_box5" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf9/cardboard_box5" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf9/cardboard_box5" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf9/cardboard_box5" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box6" parent="warehouse shelfs/warehouse shelf9" index="18" unique_id=1667815346 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.545698, 0, 0.8925122, 0, 1.0461187, 0, -0.8925122, 0, 0.545698, -1.487319, 5.3401704, 1.7985897)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf9/cardboard_box6" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf9/cardboard_box6" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf9/cardboard_box6" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf9/cardboard_box6" index="1" unique_id=237147908]
 visible = false
 
 [node name="warehouse shelf10" parent="warehouse shelfs" index="22" unique_id=1464247817 instance=ExtResource("3_j0ycx")]
@@ -1224,46 +1109,46 @@ transform = Transform3D(0.50083417, 0, 0.45092452, 0, 0.67391986, 0, -0.45092452
 [node name="cardboard_box2" parent="warehouse shelfs/warehouse shelf10" index="14" unique_id=1736554967 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.03618887, 0, -0.90442866, 0, 0.9051524, 0, 0.90442866, 0, 0.03618887, -1.4771833, 1.4889512, 2.670784)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf10/cardboard_box2" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf10/cardboard_box2" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf10/cardboard_box2" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf10/cardboard_box2" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box3" parent="warehouse shelfs/warehouse shelf10" index="15" unique_id=1403651498 instance=ExtResource("4_ilctt")]
 transform = Transform3D(-0.17001674, 0, -0.8890417, 0, 0.90515226, 0, 0.8890417, 0, -0.17001674, -1.5053988, 1.4889512, 0.24274635)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf10/cardboard_box3" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf10/cardboard_box3" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf10/cardboard_box3" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf10/cardboard_box3" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box4" parent="warehouse shelfs/warehouse shelf10" index="16" unique_id=1192139490 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.14860255, 0, -0.8928707, 0, 0.9051522, 0, 0.8928707, 0, 0.14860255, -1.5438662, 1.4889512, -3.0673008)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf10/cardboard_box4" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf10/cardboard_box4" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf10/cardboard_box4" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf10/cardboard_box4" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box5" parent="warehouse shelfs/warehouse shelf10" index="17" unique_id=39101971 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.14860255, 0, -0.8928707, 0, 0.9051522, 0, 0.8928707, 0, 0.14860255, -1.5727358, 5.1782126, -5.5514393)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf10/cardboard_box5" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf10/cardboard_box5" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf10/cardboard_box5" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf10/cardboard_box5" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box6" parent="warehouse shelfs/warehouse shelf10" index="18" unique_id=911565702 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.545698, 0, 0.8925122, 0, 1.0461187, 0, -0.8925122, 0, 0.545698, -1.487319, 5.3401704, 1.7985897)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf10/cardboard_box6" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf10/cardboard_box6" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf10/cardboard_box6" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf10/cardboard_box6" index="1" unique_id=237147908]
 visible = false
 
 [node name="warehouse shelf11" parent="warehouse shelfs" index="23" unique_id=405445367 instance=ExtResource("3_j0ycx")]
@@ -1272,38 +1157,38 @@ transform = Transform3D(-0.4183518, 0, -0.52834594, 0, 0.67391974, 0, 0.52834594
 [node name="cardboard_box2" parent="warehouse shelfs/warehouse shelf11" index="14" unique_id=1687919158 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.03618887, 0, -0.90442866, 0, 0.9051524, 0, 0.90442866, 0, 0.03618887, -1.4771833, 1.4889512, 2.670784)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf11/cardboard_box2" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf11/cardboard_box2" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf11/cardboard_box2" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf11/cardboard_box2" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box4" parent="warehouse shelfs/warehouse shelf11" index="15" unique_id=1328881397 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.14860255, 0, -0.8928707, 0, 0.9051522, 0, 0.8928707, 0, 0.14860255, -1.5438662, 1.4889512, -3.0673008)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf11/cardboard_box4" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf11/cardboard_box4" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf11/cardboard_box4" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf11/cardboard_box4" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box5" parent="warehouse shelfs/warehouse shelf11" index="16" unique_id=1163351458 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.14860255, 0, -0.8928707, 0, 0.9051522, 0, 0.8928707, 0, 0.14860255, -1.5727358, 5.1782126, -5.5514393)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf11/cardboard_box5" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf11/cardboard_box5" index="0" unique_id=590870864]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.2351637, 0)
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf11/cardboard_box5" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf11/cardboard_box5" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box6" parent="warehouse shelfs/warehouse shelf11" index="17" unique_id=1528906220 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.545698, 0, 0.8925122, 0, 1.0461187, 0, -0.8925122, 0, 0.545698, -1.487319, 5.3401704, 1.7985897)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf11/cardboard_box6" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf11/cardboard_box6" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf11/cardboard_box6" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf11/cardboard_box6" index="1" unique_id=237147908]
 visible = false
 
 [node name="warehouse shelf12" parent="warehouse shelfs" index="24" unique_id=1508517970 instance=ExtResource("3_j0ycx")]
@@ -1312,47 +1197,47 @@ transform = Transform3D(-0.67363846, 0, 0.019462079, 0, 0.6739197, 0, -0.0194620
 [node name="cardboard_box2" parent="warehouse shelfs/warehouse shelf12" index="14" unique_id=349806954 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.03618887, 0, -0.90442866, 0, 0.9051524, 0, 0.90442866, 0, 0.03618887, -1.4771833, 1.4889512, 2.670784)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf12/cardboard_box2" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf12/cardboard_box2" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf12/cardboard_box2" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf12/cardboard_box2" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box3" parent="warehouse shelfs/warehouse shelf12" index="15" unique_id=572504094 instance=ExtResource("4_ilctt")]
 transform = Transform3D(-0.17001674, 0, -0.8890417, 0, 0.90515226, 0, 0.8890417, 0, -0.17001674, -1.5053988, 1.4889512, 0.24274635)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf12/cardboard_box3" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf12/cardboard_box3" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf12/cardboard_box3" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf12/cardboard_box3" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box4" parent="warehouse shelfs/warehouse shelf12" index="16" unique_id=1154737409 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.14860255, 0, -0.8928707, 0, 0.9051522, 0, 0.8928707, 0, 0.14860255, -1.5438662, 1.4889512, -3.0673008)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf12/cardboard_box4" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf12/cardboard_box4" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf12/cardboard_box4" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf12/cardboard_box4" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box5" parent="warehouse shelfs/warehouse shelf12" index="17" unique_id=1804161466 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.14860255, 0, -0.8928707, 0, 0.9051522, 0, 0.8928707, 0, 0.14860255, -1.5727358, 5.1782126, -5.5514393)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf12/cardboard_box5" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf12/cardboard_box5" index="0" unique_id=590870864]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0552316, 0, 1.4154003)
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf12/cardboard_box5" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf12/cardboard_box5" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box6" parent="warehouse shelfs/warehouse shelf12" index="18" unique_id=592086685 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.545698, 0, 0.8925122, 0, 1.0461187, 0, -0.8925122, 0, 0.545698, -1.487319, 9.141082, 1.7985897)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf12/cardboard_box6" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf12/cardboard_box6" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf12/cardboard_box6" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf12/cardboard_box6" index="1" unique_id=237147908]
 visible = false
 
 [node name="warehouse shelf13" parent="warehouse shelfs" index="25" unique_id=1885429484 instance=ExtResource("3_j0ycx")]
@@ -1361,47 +1246,47 @@ transform = Transform3D(0.561528, 0, -0.37263104, 0, 0.6739197, 0, 0.37263104, 0
 [node name="cardboard_box2" parent="warehouse shelfs/warehouse shelf13" index="14" unique_id=1356856033 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.03618887, 0, -0.90442866, 0, 0.9051524, 0, 0.90442866, 0, 0.03618887, -1.4771833, 1.4889512, 2.670784)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf13/cardboard_box2" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf13/cardboard_box2" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf13/cardboard_box2" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf13/cardboard_box2" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box3" parent="warehouse shelfs/warehouse shelf13" index="15" unique_id=22636076 instance=ExtResource("4_ilctt")]
 transform = Transform3D(-0.17001674, 0, -0.8890417, 0, 0.90515226, 0, 0.8890417, 0, -0.17001674, -1.5053988, 1.4889512, 0.24274635)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf13/cardboard_box3" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf13/cardboard_box3" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf13/cardboard_box3" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf13/cardboard_box3" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box4" parent="warehouse shelfs/warehouse shelf13" index="16" unique_id=613249555 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.14860255, 0, -0.8928707, 0, 0.9051522, 0, 0.8928707, 0, 0.14860255, -1.5438662, 1.4889512, -3.0673008)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf13/cardboard_box4" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf13/cardboard_box4" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf13/cardboard_box4" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf13/cardboard_box4" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box5" parent="warehouse shelfs/warehouse shelf13" index="17" unique_id=1513611262 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.14860255, 0, -0.8928707, 0, 0.9051522, 0, 0.8928707, 0, 0.14860255, -1.5727358, 5.1782126, -5.5514393)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf13/cardboard_box5" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf13/cardboard_box5" index="0" unique_id=590870864]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0552316, 0, 1.4154003)
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf13/cardboard_box5" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf13/cardboard_box5" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box6" parent="warehouse shelfs/warehouse shelf13" index="18" unique_id=1545177883 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.545698, 0, 0.8925122, 0, 1.0461187, 0, -0.8925122, 0, 0.545698, -1.487319, 9.141082, 1.7985897)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf13/cardboard_box6" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf13/cardboard_box6" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf13/cardboard_box6" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf13/cardboard_box6" index="1" unique_id=237147908]
 visible = false
 
 [node name="warehouse shelf19" parent="warehouse shelfs" index="26" unique_id=1482698747 instance=ExtResource("3_j0ycx")]
@@ -1410,50 +1295,50 @@ transform = Transform3D(0.561528, 0, -0.37263104, 0, 0.6739197, 0, 0.37263104, 0
 [node name="cardboard_box2" parent="warehouse shelfs/warehouse shelf19" index="14" unique_id=1007036791 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.03618887, 0, -0.90442866, 0, 0.9051524, 0, 0.90442866, 0, 0.03618887, -1.4771833, 1.4889512, 2.670784)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf19/cardboard_box2" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf19/cardboard_box2" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf19/cardboard_box2" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf19/cardboard_box2" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box3" parent="warehouse shelfs/warehouse shelf19" index="15" unique_id=2131259324 instance=ExtResource("4_ilctt")]
 transform = Transform3D(-0.17001674, 0, -0.8890417, 0, 0.90515226, 0, 0.8890417, 0, -0.17001674, -1.5053988, 1.4889512, 0.24274635)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf19/cardboard_box3" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf19/cardboard_box3" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf19/cardboard_box3" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf19/cardboard_box3" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box4" parent="warehouse shelfs/warehouse shelf19" index="16" unique_id=579421769 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.14860255, 0, -0.8928707, 0, 0.9051522, 0, 0.8928707, 0, 0.14860255, -1.5438662, 1.4889512, -3.0673008)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf19/cardboard_box4" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf19/cardboard_box4" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf19/cardboard_box4" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf19/cardboard_box4" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box5" parent="warehouse shelfs/warehouse shelf19" index="17" unique_id=1397860330 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.14860255, 0, -0.8928707, 0, 0.9051522, 0, 0.8928707, 0, 0.14860255, -1.5727358, 5.1782126, -5.5514393)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf19/cardboard_box5" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf19/cardboard_box5" index="0" unique_id=590870864]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0552316, 0, 1.4154003)
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf19/cardboard_box5" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf19/cardboard_box5" index="1" unique_id=237147908]
 visible = false
 
 [node name="cardboard_box6" parent="warehouse shelfs/warehouse shelf19" index="18" unique_id=83067282 instance=ExtResource("4_ilctt")]
 transform = Transform3D(0.545698, 0, 0.8925122, 0, 1.0461187, 0, -0.8925122, 0, 0.545698, -1.487319, 9.141082, 1.7985897)
 
-[node name="Closed" parent="warehouse shelfs/warehouse shelf19/cardboard_box6" index="0" unique_id=61393351]
+[node name="Closed" parent="warehouse shelfs/warehouse shelf19/cardboard_box6" index="0" unique_id=590870864]
 mesh = SubResource("ArrayMesh_2vipp")
 
-[node name="Open" parent="warehouse shelfs/warehouse shelf19/cardboard_box6" index="1" unique_id=1117240781]
+[node name="Open" parent="warehouse shelfs/warehouse shelf19/cardboard_box6" index="1" unique_id=237147908]
 visible = false
 
-[node name="forklifts" type="Node3D" parent="." index="13" unique_id=1845249202]
+[node name="forklifts" type="Node3D" parent="." index="7" unique_id=1845249202]
 
 [node name="forklift" parent="forklifts" index="0" unique_id=1784389667 instance=ExtResource("6_y3wmq")]
 transform = Transform3D(-1.36708, 0, -1.5279939, 0, 2.050286, 0, 1.5279939, 0, -1.36708, 17.502048, 0.82703924, 6.879486)
@@ -1475,12 +1360,158 @@ transform = Transform3D(2.0023804, 0, 0.44062012, 0, 2.0502863, 0, -0.44062012, 
 [node name="forklift4" parent="forklifts" index="3" unique_id=1223319577 instance=ExtResource("6_y3wmq")]
 transform = Transform3D(-0.016811103, 0, -2.0502174, 0, 2.0502863, 0, 2.0502174, 0, -0.016811103, -32.46806, 0.82703924, -21.433193)
 
-[editable path="ceiling_light2"]
-[editable path="ceiling_light6"]
-[editable path="ceiling_light7"]
-[editable path="ceiling_light3"]
-[editable path="ceiling_light5"]
-[editable path="ceiling_light8"]
+[node name="ceiling lights" type="Node3D" parent="." index="8" unique_id=2066275904]
+
+[node name="ceiling_light2" parent="ceiling lights" index="0" unique_id=679925041 instance=ExtResource("2_2ikh2")]
+transform = Transform3D(2.04, 0, 0, 0, 2.04, 0, 0, 0, 2.04, 13.698334, 11.955995, 4.927603)
+
+[node name="bulb" parent="ceiling lights/ceiling_light2" index="1" unique_id=610206384]
+material_override = SubResource("StandardMaterial3D_j0ycx")
+
+[node name="SpotLight3D" parent="ceiling lights/ceiling_light2" index="3" unique_id=1144717080]
+light_energy = 16.0
+spot_range = 16.391317
+spot_attenuation = 0.17
+spot_angle = 13.124165
+
+[node name="OmniLight3D" parent="ceiling lights/ceiling_light2" index="4" unique_id=1586264128]
+light_energy = 15.074
+omni_range = 2.1804762
+
+[node name="OmniLight3D2" parent="ceiling lights/ceiling_light2" index="5" unique_id=1753280805]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5898762, 0)
+light_energy = 3.983
+omni_range = 11.448876
+omni_attenuation = 0.903
+
+[node name="ceiling_light6" parent="ceiling lights" index="1" unique_id=1831165564 instance=ExtResource("2_2ikh2")]
+transform = Transform3D(2.04, 0, 0, 0, 2.04, 0, 0, 0, 2.04, -1.2633667, 11.955995, -0.49373388)
+
+[node name="bulb" parent="ceiling lights/ceiling_light6" index="1" unique_id=610206384]
+material_override = SubResource("StandardMaterial3D_j0ycx")
+
+[node name="SpotLight3D" parent="ceiling lights/ceiling_light6" index="3" unique_id=1144717080]
+light_energy = 16.0
+spot_range = 16.391317
+spot_attenuation = 0.17
+spot_angle = 13.124165
+
+[node name="OmniLight3D" parent="ceiling lights/ceiling_light6" index="4" unique_id=1586264128]
+light_energy = 15.074
+omni_range = 2.1804762
+
+[node name="OmniLight3D2" parent="ceiling lights/ceiling_light6" index="5" unique_id=1753280805]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5898762, 0)
+light_energy = 3.983
+omni_range = 11.448876
+omni_attenuation = 0.903
+
+[node name="ceiling_light7" parent="ceiling lights" index="2" unique_id=1461094643 instance=ExtResource("2_2ikh2")]
+transform = Transform3D(2.04, 0, 0, 0, 2.04, 0, 0, 0, 2.04, -24.66877, 11.955995, -5.147209)
+
+[node name="bulb" parent="ceiling lights/ceiling_light7" index="1" unique_id=610206384]
+material_override = SubResource("StandardMaterial3D_j0ycx")
+
+[node name="SpotLight3D" parent="ceiling lights/ceiling_light7" index="3" unique_id=1144717080]
+light_energy = 16.0
+spot_range = 16.391317
+spot_attenuation = 0.17
+spot_angle = 13.124165
+
+[node name="OmniLight3D" parent="ceiling lights/ceiling_light7" index="4" unique_id=1586264128]
+light_energy = 15.074
+omni_range = 2.1804762
+
+[node name="OmniLight3D2" parent="ceiling lights/ceiling_light7" index="5" unique_id=1753280805]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5898762, 0)
+light_energy = 3.983
+omni_range = 11.448876
+omni_attenuation = 0.903
+
+[node name="ceiling_light3" parent="ceiling lights" index="3" unique_id=1482555007 instance=ExtResource("2_2ikh2")]
+transform = Transform3D(2.04, 0, 0, 0, 2.04, 0, 0, 0, 2.04, -5.347349, 13.293952, 14.63533)
+
+[node name="bulb" parent="ceiling lights/ceiling_light3" index="1" unique_id=610206384]
+material_override = SubResource("StandardMaterial3D_j0ycx")
+
+[node name="SpotLight3D" parent="ceiling lights/ceiling_light3" index="3" unique_id=1144717080]
+light_energy = 16.0
+spot_range = 16.391317
+spot_attenuation = 0.17
+spot_angle = 13.124165
+
+[node name="OmniLight3D" parent="ceiling lights/ceiling_light3" index="4" unique_id=1586264128]
+light_energy = 15.074
+omni_range = 2.1804762
+
+[node name="OmniLight3D2" parent="ceiling lights/ceiling_light3" index="5" unique_id=1753280805]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5898762, 0)
+light_energy = 3.983
+omni_range = 11.448876
+omni_attenuation = 0.903
+
+[node name="ceiling_light5" parent="ceiling lights" index="4" unique_id=952095249 instance=ExtResource("2_2ikh2")]
+transform = Transform3D(2.04, 0, 0, 0, 2.04, 0, 0, 0, 2.04, 29.32364, 12.004945, -13.776394)
+
+[node name="bulb" parent="ceiling lights/ceiling_light5" index="1" unique_id=610206384]
+material_override = SubResource("StandardMaterial3D_j0ycx")
+
+[node name="SpotLight3D" parent="ceiling lights/ceiling_light5" index="3" unique_id=1144717080]
+light_energy = 16.0
+spot_range = 16.391317
+spot_attenuation = 0.17
+spot_angle = 13.124165
+
+[node name="OmniLight3D" parent="ceiling lights/ceiling_light5" index="4" unique_id=1586264128]
+light_energy = 15.074
+omni_range = 2.1804762
+
+[node name="OmniLight3D2" parent="ceiling lights/ceiling_light5" index="5" unique_id=1753280805]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5898762, 0)
+light_energy = 3.983
+omni_range = 11.448876
+omni_attenuation = 0.903
+
+[node name="ceiling_light8" parent="ceiling lights" index="5" unique_id=16943390 instance=ExtResource("2_2ikh2")]
+transform = Transform3D(2.04, 0, 0, 0, 2.04, 0, 0, 0, 2.04, 0.78484297, 14.033247, -18.736578)
+
+[node name="bulb" parent="ceiling lights/ceiling_light8" index="1" unique_id=610206384]
+material_override = SubResource("StandardMaterial3D_j0ycx")
+
+[node name="SpotLight3D" parent="ceiling lights/ceiling_light8" index="3" unique_id=1144717080]
+light_energy = 16.0
+spot_range = 16.391317
+spot_attenuation = 0.17
+spot_angle = 13.124165
+
+[node name="OmniLight3D" parent="ceiling lights/ceiling_light8" index="4" unique_id=1586264128]
+light_energy = 15.074
+omni_range = 2.1804762
+
+[node name="OmniLight3D2" parent="ceiling lights/ceiling_light8" index="5" unique_id=1753280805]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5898762, 0)
+light_energy = 3.983
+omni_range = 11.448876
+omni_attenuation = 0.903
+
+[node name="end door" type="Node3D" parent="." index="9" unique_id=2101337520]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.151639, 0, -28.866753)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="end door" index="0" unique_id=435476405]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5642915, 3.5842376, 0.05623436)
+material_override = SubResource("ShaderMaterial_sb4vr")
+mesh = SubResource("BoxMesh_sb4vr")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="end door" index="1" unique_id=462385541]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.7875543, 3.5842376, 0.05623436)
+material_override = SubResource("ShaderMaterial_sb4vr")
+mesh = SubResource("BoxMesh_sb4vr")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="end door" index="2" unique_id=1106997340]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0.3844328, 7.1116138, 0.053884506)
+material_override = SubResource("ShaderMaterial_sb4vr")
+mesh = SubResource("BoxMesh_2xa0y")
+
 [editable path="warehouse shelfs/warehouse shelf/cardboard_box2"]
 [editable path="warehouse shelfs/warehouse shelf/cardboard_box3"]
 [editable path="warehouse shelfs/warehouse shelf/cardboard_box4"]
@@ -1606,3 +1637,9 @@ transform = Transform3D(-0.016811103, 0, -2.0502174, 0, 2.0502863, 0, 2.0502174,
 [editable path="warehouse shelfs/warehouse shelf19/cardboard_box4"]
 [editable path="warehouse shelfs/warehouse shelf19/cardboard_box5"]
 [editable path="warehouse shelfs/warehouse shelf19/cardboard_box6"]
+[editable path="ceiling lights/ceiling_light2"]
+[editable path="ceiling lights/ceiling_light6"]
+[editable path="ceiling lights/ceiling_light7"]
+[editable path="ceiling lights/ceiling_light3"]
+[editable path="ceiling lights/ceiling_light5"]
+[editable path="ceiling lights/ceiling_light8"]

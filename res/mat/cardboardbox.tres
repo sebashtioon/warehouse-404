@@ -1,6 +1,6 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://g5fr5n462mx7"]
 
-[ext_resource type="Texture2D" uid="uid://5d8pcoocqfik" path="res://ast/cardboard box/cardboard_box_cardboard_box_texture.png" id="1_bpk2v"]
+[ext_resource type="Texture2D" uid="uid://5d8pcoocqfik" path="res://ast/models/cardboard box/cardboard_box_cardboard_box_texture.png" id="1_bpk2v"]
 
 [resource]
 cull_mode = 2

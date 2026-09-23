@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://clf2r3085p34h"
-path="res://.godot/imported/cardboard_box.blend-f7e553f1275dce574ff1c80aea67afd1.scn"
+uid="uid://yxmkgnxkstnb"
+path="res://.godot/imported/warehouse.blend-115ffbbaaf444e6ce0e1f7b0d33b6209.scn"
 
 [deps]
 
-source_file="res://ast/cardboard box/cardboard_box.blend"
-dest_files=["res://.godot/imported/cardboard_box.blend-f7e553f1275dce574ff1c80aea67afd1.scn"]
+source_file="res://ast/models/warehouse/model/warehouse.blend"
+dest_files=["res://.godot/imported/warehouse.blend-115ffbbaaf444e6ce0e1f7b0d33b6209.scn"]
 
 [params]
 
@@ -39,22 +39,14 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={
-"materials": {
-"cardboard": {
-"use_external/enabled": true,
-"use_external/fallback_path": "res://res/mat/cardboardbox.tres",
-"use_external/path": "uid://g5fr5n462mx7"
-}
-}
-}
+_subresources={}
 blender/nodes/visible=0
 blender/nodes/active_collection_only=false
 blender/nodes/punctual_lights=true
 blender/nodes/cameras=true
 blender/nodes/custom_properties=true
 blender/nodes/modifiers=1
-blender/meshes/vertex_colors=2
+blender/meshes/vertex_colors=1
 blender/meshes/uvs=true
 blender/meshes/normals=true
 blender/meshes/export_geometry_nodes_instances=false
@@ -68,4 +60,4 @@ blender/animation/limit_playback=true
 blender/animation/always_sample=true
 blender/animation/group_tracks=true
 gltf/naming_version=2
-gltf/texture_map_mode=0
+gltf/texture_map_mode=1

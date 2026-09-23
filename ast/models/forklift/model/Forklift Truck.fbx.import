@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://b0vwjn1oxxbl0"
-path="res://.godot/imported/Forklift Truck.fbx-b1eab7a3e43a8fd2872bfe4da15c57cc.scn"
+path="res://.godot/imported/Forklift Truck.fbx-ec23b1f5831dd48083cda5bc673d559f.scn"
 
 [deps]
 
-source_file="res://ast/forklift/model/Forklift Truck.fbx"
-dest_files=["res://.godot/imported/Forklift Truck.fbx-b1eab7a3e43a8fd2872bfe4da15c57cc.scn"]
+source_file="res://ast/models/forklift/model/Forklift Truck.fbx"
+dest_files=["res://.godot/imported/Forklift Truck.fbx-ec23b1f5831dd48083cda5bc673d559f.scn"]
 
 [params]
 
