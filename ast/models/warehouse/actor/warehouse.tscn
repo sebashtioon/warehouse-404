@@ -1470,8 +1470,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.53881836, 3.4180603, -0.136
 material_override = SubResource("StandardMaterial3D_nhlo8")
 mesh = SubResource("BoxMesh_8xryq")
 
-[node name="ceiling_light" parent="." index="10" unique_id=1169044519 instance=ExtResource("10_f7u6m")]
-transform = Transform3D(-6.8408326e-08, 0, -1.565, 0, 1.565, 0, 1.565, 0, -6.8408326e-08, 0.28396177, 10.045424, -22.789186)
+[node name="exit_sign" parent="." index="10" unique_id=1169044519 instance=ExtResource("10_f7u6m")]
+transform = Transform3D(-6.8408326e-08, 0, -1.565, 0, 1.565, 0, 1.565, 0, -6.8408326e-08, 1.52479, 8.46841, -24.5821)
 
 [editable path="warehouse shelfs/warehouse shelf/cardboard_box2"]
 [editable path="warehouse shelfs/warehouse shelf/cardboard_box3"]
