@@ -1949,49 +1949,63 @@ outline_modulate = Color(0, 0, 0, 0)
 text = "0"
 font = ExtResource("13_l2xns")
 
-[node name="Label3D3" type="Label3D" parent="terminal/KeyPanel" index="3" unique_id=869521942]
+[node name="Label3D11" type="Label3D" parent="terminal/KeyPanel" index="3" unique_id=647729505]
+transform = Transform3D(0.14722376, -5.820766e-11, 0.0033241068, -0.0028100163, 0.04354293, 0.1378858, -0.0014412439, -0.08489632, 0.07072097, 0.0684382, -0.014738394, 0.035777636)
+modulate = Color(1, 0, 0, 1)
+outline_modulate = Color(0, 0, 0, 0)
+text = "ENT"
+font = ExtResource("13_l2xns")
+
+[node name="Label3D12" type="Label3D" parent="terminal/KeyPanel" index="4" unique_id=452914313]
+transform = Transform3D(0.14722376, -5.820766e-11, 0.0033241068, -0.0028100163, 0.04354293, 0.1378858, -0.0014412439, -0.08489632, 0.07072097, 0.06841207, -0.0044242204, 0.012998837)
+modulate = Color(1, 0, 0, 1)
+outline_modulate = Color(0, 0, 0, 0)
+text = "DEL"
+font = ExtResource("13_l2xns")
+
+[node name="Label3D3" type="Label3D" parent="terminal/KeyPanel" index="5" unique_id=869521942]
 transform = Transform3D(0.26038748, 0, 0, 0, 0.04354292, 0.13791752, 0, -0.08489632, 0.07073724, -0.05334411, -0.0041632378, 0.012827247)
 modulate = Color(1, 0, 0, 1)
 outline_modulate = Color(0, 0, 0, 0)
 text = "1"
 font = ExtResource("13_l2xns")
 
-[node name="Label3D4" type="Label3D" parent="terminal/KeyPanel" index="4" unique_id=1634374500]
+[node name="Label3D4" type="Label3D" parent="terminal/KeyPanel" index="6" unique_id=1634374500]
 transform = Transform3D(0.26038748, 0, 0, 0, 0.04354292, 0.13791752, 0, -0.08489632, 0.07073724, 0.0076049035, 0.006737142, -0.0104505615)
 modulate = Color(1, 0, 0, 1)
 outline_modulate = Color(0, 0, 0, 0)
 text = "6"
 font = ExtResource("13_l2xns")
 
-[node name="Label3D5" type="Label3D" parent="terminal/KeyPanel" index="5" unique_id=1738781435]
+[node name="Label3D5" type="Label3D" parent="terminal/KeyPanel" index="7" unique_id=1738781435]
 transform = Transform3D(0.26038748, 0, 0, 0, 0.04354292, 0.13791752, 0, -0.08489632, 0.07073724, -0.023161838, 0.006737142, -0.0104505615)
 modulate = Color(1, 0, 0, 1)
 outline_modulate = Color(0, 0, 0, 0)
 text = "5"
 font = ExtResource("13_l2xns")
 
-[node name="Label3D6" type="Label3D" parent="terminal/KeyPanel" index="6" unique_id=1619527666]
+[node name="Label3D6" type="Label3D" parent="terminal/KeyPanel" index="8" unique_id=1619527666]
 transform = Transform3D(0.26038748, 0, 0, 0, 0.04354292, 0.13791752, 0, -0.08489632, 0.07073724, -0.05334411, 0.006737142, -0.0104505615)
 modulate = Color(1, 0, 0, 1)
 outline_modulate = Color(0, 0, 0, 0)
 text = "4"
 font = ExtResource("13_l2xns")
 
-[node name="Label3D7" type="Label3D" parent="terminal/KeyPanel" index="7" unique_id=1319553414]
+[node name="Label3D7" type="Label3D" parent="terminal/KeyPanel" index="9" unique_id=1319553414]
 transform = Transform3D(0.26038748, 0, 0, 0, 0.04354292, 0.13791752, 0, -0.08489632, 0.07073724, 0.0076049035, 0.017671864, -0.03337086)
 modulate = Color(1, 0, 0, 1)
 outline_modulate = Color(0, 0, 0, 0)
 text = "9"
 font = ExtResource("13_l2xns")
 
-[node name="Label3D8" type="Label3D" parent="terminal/KeyPanel" index="8" unique_id=732244908]
+[node name="Label3D8" type="Label3D" parent="terminal/KeyPanel" index="10" unique_id=732244908]
 transform = Transform3D(0.26038748, 0, 0, 0, 0.04354292, 0.13791752, 0, -0.08489632, 0.07073724, -0.023161838, 0.017671864, -0.03337086)
 modulate = Color(1, 0, 0, 1)
 outline_modulate = Color(0, 0, 0, 0)
 text = "8"
 font = ExtResource("13_l2xns")
 
-[node name="Label3D9" type="Label3D" parent="terminal/KeyPanel" index="9" unique_id=2093936888]
+[node name="Label3D9" type="Label3D" parent="terminal/KeyPanel" index="11" unique_id=2093936888]
 transform = Transform3D(0.26038748, 0, 0, 0, 0.04354292, 0.13791752, 0, -0.08489632, 0.07073724, -0.05334411, 0.017671864, -0.03337086)
 modulate = Color(1, 0, 0, 1)
 outline_modulate = Color(0, 0, 0, 0)
@@ -2171,6 +2185,18 @@ offset_top = 484.38
 offset_right = 610.50507
 offset_bottom = 506.995
 
+[node name="Button_del" type="Button" parent="terminal/Camera3D/interface" index="10" unique_id=1924379658]
+offset_left = 638.9
+offset_top = 524.43
+offset_right = 682.005
+offset_bottom = 547.0449
+
+[node name="Button_ent" type="Button" parent="terminal/Camera3D/interface" index="11" unique_id=142065233]
+offset_left = 642.1
+offset_top = 549.565
+offset_right = 689.38
+offset_bottom = 572.95
+
 [node name="beeninmainterm" type="Area3D" parent="terminal" index="11" unique_id=1104493121]
 collision_layer = 4
 collision_mask = 2
@@ -2179,17 +2205,17 @@ collision_mask = 2
 transform = Transform3D(1, 0, 0, 0, 0.99999857, 0, 0, 0, 0.99999857, 0.079818726, 1.0422969, 0.7419243)
 shape = SubResource("BoxShape3D_fgovh")
 
-[node name="terminal_2" parent="." index="12" unique_id=1865462399 instance=ExtResource("11_2bhg6")]
-transform = Transform3D(-0.82559097, 0, -0.51848835, 0, 1.0369767, 0, 0.47665513, 0, -0.89804816, 44.35188, 0.4009366, -20.03794)
-
-[node name="screen" parent="terminal_2" index="0" unique_id=1506133578]
-texture = ExtResource("12_w3ho1")
-
-[node name="terminal_1" parent="." index="13" unique_id=1446413503 instance=ExtResource("11_2bhg6")]
+[node name="terminal_1" parent="." index="12" unique_id=1446413503 instance=ExtResource("11_2bhg6")]
 transform = Transform3D(-0.82559097, 0, -0.51848835, 0, 1.0369767, 0, 0.47665513, 0, -0.89804816, 17.821665, 0.4009366, 5.7881794)
 
 [node name="screen" parent="terminal_1" index="0" unique_id=1506133578]
 texture = ExtResource("13_to2k0")
+
+[node name="terminal_2" parent="." index="13" unique_id=1865462399 instance=ExtResource("11_2bhg6")]
+transform = Transform3D(-0.82559097, 0, -0.51848835, 0, 1.0369767, 0, 0.47665513, 0, -0.89804816, 44.35188, 0.4009366, -20.03794)
+
+[node name="screen" parent="terminal_2" index="0" unique_id=1506133578]
+texture = ExtResource("12_w3ho1")
 
 [node name="terminal_3" parent="." index="14" unique_id=1032887304 instance=ExtResource("11_2bhg6")]
 transform = Transform3D(-0.82559097, 0, -0.51848835, 0, 1.0369767, 0, 0.47665513, 0, -0.89804816, 45.713413, 0.4009366, 28.380014)
@@ -2363,6 +2389,8 @@ debug_color = Color(1, 0, 1, 1)
 [connection signal="pressed" from="terminal/Camera3D/interface/Button7" to="." method="_on_button_7_pressed"]
 [connection signal="pressed" from="terminal/Camera3D/interface/Button8" to="." method="_on_button_8_pressed"]
 [connection signal="pressed" from="terminal/Camera3D/interface/Button9" to="." method="_on_button_9_pressed"]
+[connection signal="pressed" from="terminal/Camera3D/interface/Button_del" to="." method="_on_button_del_pressed"]
+[connection signal="pressed" from="terminal/Camera3D/interface/Button_ent" to="." method="_on_button_ent_pressed"]
 [connection signal="body_exited" from="terminal/beeninmainterm" to="." method="_on_beeninmainterm_body_exited"]
 
 [editable path="warehouse shelfs/warehouse shelf/cardboard_box2"]
@@ -2496,7 +2524,7 @@ debug_color = Color(1, 0, 1, 1)
 [editable path="ceiling lights/ceiling_light3"]
 [editable path="ceiling lights/ceiling_light5"]
 [editable path="ceiling lights/ceiling_light8"]
-[editable path="terminal_2"]
 [editable path="terminal_1"]
+[editable path="terminal_2"]
 [editable path="terminal_3"]
 [editable path="terminal_4"]

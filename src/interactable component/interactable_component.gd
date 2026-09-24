@@ -27,10 +27,11 @@ func _process(_delta: float) -> void:
 	else:
 		toggle_interacting(false)
 
-func _unhandled_input(_event: InputEvent) -> void:
-	if interacting:
-		if Input.is_action_just_pressed(ActionToPress.action):
+func _unhandled_input(event: InputEvent) -> void:
+	if player_area_box_active and mimic_raycast_box_active:
+		if event.is_action_pressed(ActionToPress.action):
 			action_triggered.emit()
+			get_viewport().set_input_as_handled()
 
 func _on_player_area_box_body_entered(body: Node3D) -> void:
 	if body.is_in_group(&"player_body"):

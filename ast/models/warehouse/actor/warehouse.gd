@@ -55,28 +55,82 @@ func _on_button_0_pressed() -> void:
 		current_code = current_code + "0"
 
 func _on_button_1_pressed() -> void:
-	pass # Replace with function body.
+	if in_terminal:
+		var first_code = current_code
+		if first_code.length() == 4:
+			return
+		
+		current_code = current_code + "1"
 
 func _on_button_2_pressed() -> void:
-	pass # Replace with function body.
+	if in_terminal:
+		var first_code = current_code
+		if first_code.length() == 4:
+			return
+		
+		current_code = current_code + "2"
 
 func _on_button_3_pressed() -> void:
-	pass # Replace with function body.
+	if in_terminal:
+		var first_code = current_code
+		if first_code.length() == 4:
+			return
+		
+		current_code = current_code + "3"
 
 func _on_button_4_pressed() -> void:
-	pass # Replace with function body.
+	if in_terminal:
+		var first_code = current_code
+		if first_code.length() == 4:
+			return
+		
+		current_code = current_code + "4"
 
 func _on_button_5_pressed() -> void:
-	pass # Replace with function body.
+	if in_terminal:
+		var first_code = current_code
+		if first_code.length() == 4:
+			return
+		
+		current_code = current_code + "5"
 
 func _on_button_6_pressed() -> void:
-	pass # Replace with function body.
+	if in_terminal:
+		var first_code = current_code
+		if first_code.length() == 4:
+			return
+		
+		current_code = current_code + "6"
 
 func _on_button_7_pressed() -> void:
-	pass # Replace with function body.
+	if in_terminal:
+		var first_code = current_code
+		if first_code.length() == 4:
+			return
+		
+		current_code = current_code + "7"
 
 func _on_button_8_pressed() -> void:
-	pass # Replace with function body.
+	if in_terminal:
+		var first_code = current_code
+		if first_code.length() == 4:
+			return
+		
+		current_code = current_code + "8"
 
 func _on_button_9_pressed() -> void:
-	pass # Replace with function body.
+	if in_terminal:
+		var first_code = current_code
+		if first_code.length() == 4:
+			return
+		
+		current_code = current_code + "9"
+
+func _on_button_del_pressed() -> void:
+	current_code = current_code.left(-1)
+
+func _on_button_ent_pressed() -> void:
+	if current_code == "4089":
+		pass # end
+	else:
+		pass
