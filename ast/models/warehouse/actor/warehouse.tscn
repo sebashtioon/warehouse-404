@@ -1928,8 +1928,75 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.005287528, 1.3679516, 0.318
 mesh = SubResource("ArrayMesh_y05vj")
 
 [node name="Label3D" type="Label3D" parent="terminal/KeyPanel" index="0" unique_id=1346875803]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.057451926, 0, -0.027987333)
+transform = Transform3D(0.26038748, 0, 0, 0, 0.04354292, 0.13791752, 0, -0.08489632, 0.07073724, 0.0076049035, -0.0041632378, 0.012827247)
+modulate = Color(1, 0, 0, 1)
+outline_modulate = Color(0, 0, 0, 0)
 text = "3"
+font = ExtResource("13_l2xns")
+
+[node name="Label3D2" type="Label3D" parent="terminal/KeyPanel" index="1" unique_id=575704538]
+transform = Transform3D(0.26038748, 0, 0, 0, 0.04354292, 0.13791752, 0, -0.08489632, 0.07073724, -0.023161838, -0.0041632378, 0.012827247)
+modulate = Color(1, 0, 0, 1)
+outline_modulate = Color(0, 0, 0, 0)
+text = "2"
+font = ExtResource("13_l2xns")
+
+[node name="Label3D10" type="Label3D" parent="terminal/KeyPanel" index="2" unique_id=1587751726]
+transform = Transform3D(0.26013055, 0, 0.0068839593, -0.010289977, 0.043542925, 0.13778143, -0.005277681, -0.08489632, 0.070667446, -0.02305675, -0.014599469, 0.035848886)
+modulate = Color(1, 0, 0, 1)
+outline_modulate = Color(0, 0, 0, 0)
+text = "0"
+font = ExtResource("13_l2xns")
+
+[node name="Label3D3" type="Label3D" parent="terminal/KeyPanel" index="3" unique_id=869521942]
+transform = Transform3D(0.26038748, 0, 0, 0, 0.04354292, 0.13791752, 0, -0.08489632, 0.07073724, -0.05334411, -0.0041632378, 0.012827247)
+modulate = Color(1, 0, 0, 1)
+outline_modulate = Color(0, 0, 0, 0)
+text = "1"
+font = ExtResource("13_l2xns")
+
+[node name="Label3D4" type="Label3D" parent="terminal/KeyPanel" index="4" unique_id=1634374500]
+transform = Transform3D(0.26038748, 0, 0, 0, 0.04354292, 0.13791752, 0, -0.08489632, 0.07073724, 0.0076049035, 0.006737142, -0.0104505615)
+modulate = Color(1, 0, 0, 1)
+outline_modulate = Color(0, 0, 0, 0)
+text = "6"
+font = ExtResource("13_l2xns")
+
+[node name="Label3D5" type="Label3D" parent="terminal/KeyPanel" index="5" unique_id=1738781435]
+transform = Transform3D(0.26038748, 0, 0, 0, 0.04354292, 0.13791752, 0, -0.08489632, 0.07073724, -0.023161838, 0.006737142, -0.0104505615)
+modulate = Color(1, 0, 0, 1)
+outline_modulate = Color(0, 0, 0, 0)
+text = "5"
+font = ExtResource("13_l2xns")
+
+[node name="Label3D6" type="Label3D" parent="terminal/KeyPanel" index="6" unique_id=1619527666]
+transform = Transform3D(0.26038748, 0, 0, 0, 0.04354292, 0.13791752, 0, -0.08489632, 0.07073724, -0.05334411, 0.006737142, -0.0104505615)
+modulate = Color(1, 0, 0, 1)
+outline_modulate = Color(0, 0, 0, 0)
+text = "4"
+font = ExtResource("13_l2xns")
+
+[node name="Label3D7" type="Label3D" parent="terminal/KeyPanel" index="7" unique_id=1319553414]
+transform = Transform3D(0.26038748, 0, 0, 0, 0.04354292, 0.13791752, 0, -0.08489632, 0.07073724, 0.0076049035, 0.017671864, -0.03337086)
+modulate = Color(1, 0, 0, 1)
+outline_modulate = Color(0, 0, 0, 0)
+text = "9"
+font = ExtResource("13_l2xns")
+
+[node name="Label3D8" type="Label3D" parent="terminal/KeyPanel" index="8" unique_id=732244908]
+transform = Transform3D(0.26038748, 0, 0, 0, 0.04354292, 0.13791752, 0, -0.08489632, 0.07073724, -0.023161838, 0.017671864, -0.03337086)
+modulate = Color(1, 0, 0, 1)
+outline_modulate = Color(0, 0, 0, 0)
+text = "8"
+font = ExtResource("13_l2xns")
+
+[node name="Label3D9" type="Label3D" parent="terminal/KeyPanel" index="9" unique_id=2093936888]
+transform = Transform3D(0.26038748, 0, 0, 0, 0.04354292, 0.13791752, 0, -0.08489632, 0.07073724, -0.05334411, 0.017671864, -0.03337086)
+modulate = Color(1, 0, 0, 1)
+outline_modulate = Color(0, 0, 0, 0)
+text = "7
+"
+font = ExtResource("13_l2xns")
 
 [node name="MoneyOutputPanel" type="MeshInstance3D" parent="terminal" index="4" unique_id=679565023]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.015290499, 1.125384, 0.4987365)
@@ -1942,6 +2009,15 @@ mesh = SubResource("ArrayMesh_6mj1b")
 [node name="Screen" type="MeshInstance3D" parent="terminal" index="6" unique_id=2089736036]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.01529181, 1.6967156, 0.12121165)
 mesh = SubResource("ArrayMesh_xkflx")
+
+[node name="code" type="Label3D" parent="terminal/Screen" index="0" unique_id=2024005101]
+transform = Transform3D(0.38111103, 0, 0, 0, 0.20649843, 0, 0, 0, 0.99999994, -0.11153988, 0.07708518, 0.0037060548)
+render_priority = 5
+modulate = Color(1, 0, 0, 1)
+outline_modulate = Color(0, 0, 0, 0)
+text = "0000"
+font = ExtResource("13_l2xns")
+horizontal_alignment = 0
 
 [node name="ScreenPanel" type="MeshInstance3D" parent="terminal" index="7" unique_id=65829421]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.015635014, 1.69758, 0.12584561)
