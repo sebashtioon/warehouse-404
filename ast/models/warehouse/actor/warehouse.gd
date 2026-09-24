@@ -1,5 +1,8 @@
 extends Node3D
 
+var current_code : string = ""
+
+
 var exit_main_term_area_debounce : bool = false
 
 var in_terminal : bool = false
@@ -37,3 +40,35 @@ func _input(_event: InputEvent) -> void:
 		PlayerGlobal.player.crosshair.show()
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		in_terminal = false
+
+
+func _on_button_0_pressed() -> void:
+	if in_terminal:
+		
+
+func _on_button_1_pressed() -> void:
+	pass # Replace with function body.
+
+func _on_button_2_pressed() -> void:
+	pass # Replace with function body.
+
+func _on_button_3_pressed() -> void:
+	pass # Replace with function body.
+
+func _on_button_4_pressed() -> void:
+	pass # Replace with function body.
+
+func _on_button_5_pressed() -> void:
+	pass # Replace with function body.
+
+func _on_button_6_pressed() -> void:
+	pass # Replace with function body.
+
+func _on_button_7_pressed() -> void:
+	pass # Replace with function body.
+
+func _on_button_8_pressed() -> void:
+	pass # Replace with function body.
+
+func _on_button_9_pressed() -> void:
+	pass # Replace with function body.
