@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b0mw1em65kmas"
 path.s3tc="res://.godot/imported/thumbup.jpg-6982084ca66ae435a407b35ba51d0c2e.s3tc.ctex"
+path.etc2="res://.godot/imported/thumbup.jpg-6982084ca66ae435a407b35ba51d0c2e.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://ast/textures/thumbup.jpg"
-dest_files=["res://.godot/imported/thumbup.jpg-6982084ca66ae435a407b35ba51d0c2e.s3tc.ctex"]
+dest_files=["res://.godot/imported/thumbup.jpg-6982084ca66ae435a407b35ba51d0c2e.s3tc.ctex", "res://.godot/imported/thumbup.jpg-6982084ca66ae435a407b35ba51d0c2e.etc2.ctex"]
 
 [params]
 
