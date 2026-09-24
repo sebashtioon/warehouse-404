@@ -1927,6 +1927,10 @@ mesh = SubResource("ArrayMesh_uggrn")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.005287528, 1.3679516, 0.31823748)
 mesh = SubResource("ArrayMesh_y05vj")
 
+[node name="Label3D" type="Label3D" parent="terminal/KeyPanel" index="0" unique_id=1346875803]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.057451926, 0, -0.027987333)
+text = "3"
+
 [node name="MoneyOutputPanel" type="MeshInstance3D" parent="terminal" index="4" unique_id=679565023]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.015290499, 1.125384, 0.4987365)
 mesh = SubResource("ArrayMesh_ln0a5")
@@ -2025,6 +2029,69 @@ offset_bottom = -5.0
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("13_l2xns")
 text = "[E] to exit"
+
+[node name="interface" type="CanvasLayer" parent="terminal/Camera3D" index="1" unique_id=1486602066]
+layer = 23
+
+[node name="Button0" type="Button" parent="terminal/Camera3D/interface" index="0" unique_id=1296776088]
+offset_left = 548.485
+offset_top = 553.19
+offset_right = 579.66
+offset_bottom = 575.805
+
+[node name="Button1" type="Button" parent="terminal/Camera3D/interface" index="1" unique_id=1469277718]
+offset_left = 517.995
+offset_top = 526.905
+offset_right = 549.17
+offset_bottom = 549.52
+
+[node name="Button2" type="Button" parent="terminal/Camera3D/interface" index="2" unique_id=1936769572]
+offset_left = 549.575
+offset_top = 526.905
+offset_right = 580.75
+offset_bottom = 549.52
+
+[node name="Button3" type="Button" parent="terminal/Camera3D/interface" index="3" unique_id=1895256197]
+offset_left = 579.48
+offset_top = 526.905
+offset_right = 610.65497
+offset_bottom = 549.52
+
+[node name="Button4" type="Button" parent="terminal/Camera3D/interface" index="4" unique_id=541866517]
+offset_left = 518.895
+offset_top = 504.925
+offset_right = 550.06995
+offset_bottom = 527.5403
+
+[node name="Button5" type="Button" parent="terminal/Camera3D/interface" index="5" unique_id=1939104564]
+offset_left = 549.44995
+offset_top = 504.925
+offset_right = 580.62494
+offset_bottom = 527.54
+
+[node name="Button6" type="Button" parent="terminal/Camera3D/interface" index="6" unique_id=40127424]
+offset_left = 579.3301
+offset_top = 504.925
+offset_right = 610.50507
+offset_bottom = 527.54
+
+[node name="Button7" type="Button" parent="terminal/Camera3D/interface" index="7" unique_id=1397697690]
+offset_left = 520.39
+offset_top = 484.38
+offset_right = 551.56494
+offset_bottom = 506.9953
+
+[node name="Button8" type="Button" parent="terminal/Camera3D/interface" index="8" unique_id=1250093807]
+offset_left = 549.44995
+offset_top = 484.38
+offset_right = 580.62494
+offset_bottom = 506.995
+
+[node name="Button9" type="Button" parent="terminal/Camera3D/interface" index="9" unique_id=1079874650]
+offset_left = 579.3301
+offset_top = 484.38
+offset_right = 610.50507
+offset_bottom = 506.995
 
 [node name="beeninmainterm" type="Area3D" parent="terminal" index="11" unique_id=1104493121]
 collision_layer = 4
