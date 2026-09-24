@@ -9,6 +9,7 @@ var in_terminal : bool = false
 var can_interact_in_terminal : bool = true
 
 func _ready() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	$fade/fade.modulate.a = 1.0
 	var tween = get_tree().create_tween()
 	tween.tween_interval(1.0)
