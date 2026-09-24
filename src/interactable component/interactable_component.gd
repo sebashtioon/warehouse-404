@@ -6,6 +6,8 @@ var interacting : bool = false
 var player_area_box_active : bool = false
 var mimic_raycast_box_active : bool = false
 
+
+
 @export var Contents_Node : Node3D
 @export var UI_Sprite_Node : Sprite3D
 @export var SubViewport_Node : SubViewport
@@ -39,9 +41,9 @@ func _on_player_area_box_body_exited(body: Node3D) -> void:
 		player_area_box_active = false
 
 func _on_mimic_raycast_box_area_entered(area: Area3D) -> void:
-	if area.is_in_group(&"raycast_mimic"):
+	if area.is_in_group(&"raycast_mimic_adjustable"):
 		mimic_raycast_box_active = true
 
 func _on_mimic_raycast_box_area_exited(area: Area3D) -> void:
-	if area.is_in_group(&"raycast_mimic"):
+	if area.is_in_group(&"raycast_mimic_adjustable"):
 		mimic_raycast_box_active = false

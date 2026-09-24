@@ -13,7 +13,7 @@ points = PackedVector3Array(-0.125207, -0.532801, -0.480507, 0.0227831, 0.47607,
 size = Vector3(0.05, 0.05, 1.52554)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rxibo"]
-size = Vector3(0.05, 0.05, 16.010048)
+size = Vector3(0.05, 0.05, 1.855051)
 
 [node name="player" type="CharacterBody3D" unique_id=838546913 node_paths=PackedStringArray("head", "camera", "mesh", "crosshair") groups=["player_body"]]
 collision_layer = 2
@@ -50,7 +50,7 @@ shape = SubResource("BoxShape3D_4anbu")
 [node name="RaycastMimicAdjustable" type="Area3D" parent="head/camera" unique_id=93207846 groups=["raycast_mimic_adjustable"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="head/camera/RaycastMimicAdjustable" unique_id=970130377]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7.9800234)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.90252495)
 shape = SubResource("BoxShape3D_rxibo")
 
 [node name="effectlayer" type="CanvasLayer" parent="head/camera" unique_id=45059322]

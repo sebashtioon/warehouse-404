@@ -26,10 +26,8 @@ extends CharacterBody3D
 @export var BOB_AMP: float = 0.08
 @export var BOB_SMOOTHING_SPEED: float = 3.0
 
-
+@export_group("other")
 @export var crosshair: Control
-
-
 @export var in_main_term_interface : bool = false
 
 var speed: float
