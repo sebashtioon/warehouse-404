@@ -29,6 +29,7 @@ crosshair = NodePath("head/camera/uneffectlayer/crosshair")
 
 [node name="mesh" type="MeshInstance3D" parent="." unique_id=2041292677]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+visible = false
 mesh = SubResource("CapsuleMesh_e8ep2")
 
 [node name="collision" type="CollisionShape3D" parent="." unique_id=1505164380]

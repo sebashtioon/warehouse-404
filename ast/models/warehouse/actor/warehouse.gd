@@ -14,20 +14,22 @@ func _on_beeninmainterm_body_exited(body: Node3D) -> void:
 func _on_interactablecomponent_action_triggered() -> void:
 	if !in_terminal:
 		print("boom 2")
+		$terminal/Screen/code.show()
 		$terminal/Camera3D.make_current()
 		$terminal/Camera3D/CanvasLayer.show()
 		$terminal/interactablecomponent.hide()
 		$terminal/interactablecomponent.process_mode = Node.PROCESS_MODE_DISABLED
 		PlayerGlobal.player.crosshair.hide()
+		PlayerGlobal.player.process_mode = Node.PROCESS_MODE_DISABLED
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		in_terminal = true
-	
-
 
 func _input(_event: InputEvent) -> void:
 	if in_terminal and Input.is_action_just_pressed("Interact"):
 		get_viewport().set_input_as_handled()
 		print("boom")
+		$terminal/Screen/code.hide()
+		PlayerGlobal.player.process_mode = Node.PROCESS_MODE_INHERIT
 		PlayerGlobal.player.camera.make_current()
 		$terminal/Camera3D/CanvasLayer.hide()
 		$terminal/interactablecomponent.show()

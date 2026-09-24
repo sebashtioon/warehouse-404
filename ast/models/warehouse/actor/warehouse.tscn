@@ -2012,6 +2012,7 @@ mesh = SubResource("ArrayMesh_xkflx")
 
 [node name="code" type="Label3D" parent="terminal/Screen" index="0" unique_id=2024005101]
 transform = Transform3D(0.38111103, 0, 0, 0, 0.20649843, 0, 0, 0, 0.99999994, -0.11153988, 0.07708518, 0.0037060548)
+visible = false
 render_priority = 5
 modulate = Color(1, 0, 0, 1)
 outline_modulate = Color(0, 0, 0, 0)
