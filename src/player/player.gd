@@ -27,6 +27,11 @@ extends CharacterBody3D
 @export var BOB_SMOOTHING_SPEED: float = 3.0
 
 
+@export var crosshair: Control
+
+
+@export var in_main_term_interface : bool = false
+
 var speed: float
 var bob_wave_length: float = 0.0
 

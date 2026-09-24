@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bas1ig6qgdxnu"]
+
+[ext_resource type="PackedScene" uid="uid://clf2r3085p34h" path="res://ast/models/cardboard box/cardboard_box.blend" id="1_f4qf1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sb4vr"]
+size = Vector3(1.9729004, 1.9215088, 1.9360352)
+
+[node name="cardboard_box" unique_id=754723940 instance=ExtResource("1_f4qf1")]
+
+[node name="Open" parent="." index="1" unique_id=237147908]
+visible = false
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="2" unique_id=1478049599]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0" unique_id=1005477664]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.007446289, -0.014831543, 0.010986328)
+shape = SubResource("BoxShape3D_sb4vr")
