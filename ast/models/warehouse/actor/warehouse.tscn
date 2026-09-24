@@ -21,6 +21,10 @@
 [ext_resource type="Script" uid="uid://bd0m5fxta6ace" path="res://ast/models/terminal/actor/main_terminal.gd" id="13_vqrgv"]
 [ext_resource type="Texture2D" uid="uid://1u3dmjvbok24" path="res://ast/textures/terminal/term3.png" id="14_fa4r4"]
 [ext_resource type="Texture2D" uid="uid://bnqyg5dm1ovib" path="res://ast/textures/terminal/term4.png" id="15_2tyva"]
+[ext_resource type="AudioStream" uid="uid://b08dn5kfryp4x" path="res://ast/audio/sfx/universfield-click-button-140881.mp3" id="22_sso12"]
+[ext_resource type="AudioStream" uid="uid://blld8f7vh5err" path="res://ast/audio/sfx/correct-answer-new.mp3" id="22_ybi6o"]
+[ext_resource type="AudioStream" uid="uid://dmupr12vomn8w" path="res://ast/audio/sfx/incorrect-buzzer-noise.mp3" id="23_1jf0p"]
+[ext_resource type="Texture2D" uid="uid://b0mw1em65kmas" path="res://ast/textures/thumbup.jpg" id="25_urhtt"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_c1elt"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -522,6 +526,67 @@ size = Vector3(9.166748, 6.302124, 2.9006958)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_divyv"]
 size = Vector3(9.383179, 6.302124, 2.9006958)
+
+[sub_resource type="Animation" id="Animation_gjl0p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["where am i?"]
+}
+
+[sub_resource type="Animation" id="Animation_urhtt"]
+resource_name = "main"
+length = 20.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3.0637643, 3.0666666, 5.6, 6.0666666, 9.563765, 9.566667, 12.799999, 13.266666),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 8.666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["where am i?", "i need to find a way out."]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gjl0p"]
+_data = {
+&"RESET": SubResource("Animation_gjl0p"),
+&"main": SubResource("Animation_urhtt")
+}
 
 [node name="warehouse" unique_id=357572645 node_paths=PackedStringArray("code") instance=ExtResource("1_c1elt")]
 script = ExtResource("2_8x70h")
@@ -2126,72 +2191,84 @@ text = "[E] to exit"
 layer = 23
 
 [node name="Button0" type="Button" parent="terminal/Camera3D/interface" index="0" unique_id=1296776088]
+modulate = Color(1, 1, 1, 0)
 offset_left = 548.485
 offset_top = 553.19
 offset_right = 579.66
 offset_bottom = 575.805
 
 [node name="Button1" type="Button" parent="terminal/Camera3D/interface" index="1" unique_id=1469277718]
+modulate = Color(1, 1, 1, 0)
 offset_left = 517.995
 offset_top = 526.905
 offset_right = 549.17
 offset_bottom = 549.52
 
 [node name="Button2" type="Button" parent="terminal/Camera3D/interface" index="2" unique_id=1936769572]
+modulate = Color(1, 1, 1, 0)
 offset_left = 549.575
 offset_top = 526.905
 offset_right = 580.75
 offset_bottom = 549.52
 
 [node name="Button3" type="Button" parent="terminal/Camera3D/interface" index="3" unique_id=1895256197]
+modulate = Color(1, 1, 1, 0)
 offset_left = 579.48
 offset_top = 526.905
 offset_right = 610.65497
 offset_bottom = 549.52
 
 [node name="Button4" type="Button" parent="terminal/Camera3D/interface" index="4" unique_id=541866517]
+modulate = Color(1, 1, 1, 0)
 offset_left = 518.895
 offset_top = 504.925
 offset_right = 550.06995
 offset_bottom = 527.5403
 
 [node name="Button5" type="Button" parent="terminal/Camera3D/interface" index="5" unique_id=1939104564]
+modulate = Color(1, 1, 1, 0)
 offset_left = 549.44995
 offset_top = 504.925
 offset_right = 580.62494
 offset_bottom = 527.54
 
 [node name="Button6" type="Button" parent="terminal/Camera3D/interface" index="6" unique_id=40127424]
+modulate = Color(1, 1, 1, 0)
 offset_left = 579.3301
 offset_top = 504.925
 offset_right = 610.50507
 offset_bottom = 527.54
 
 [node name="Button7" type="Button" parent="terminal/Camera3D/interface" index="7" unique_id=1397697690]
+modulate = Color(1, 1, 1, 0)
 offset_left = 520.39
 offset_top = 484.38
 offset_right = 551.56494
 offset_bottom = 506.9953
 
 [node name="Button8" type="Button" parent="terminal/Camera3D/interface" index="8" unique_id=1250093807]
+modulate = Color(1, 1, 1, 0)
 offset_left = 549.44995
 offset_top = 484.38
 offset_right = 580.62494
 offset_bottom = 506.995
 
 [node name="Button9" type="Button" parent="terminal/Camera3D/interface" index="9" unique_id=1079874650]
+modulate = Color(1, 1, 1, 0)
 offset_left = 579.3301
 offset_top = 484.38
 offset_right = 610.50507
 offset_bottom = 506.995
 
 [node name="Button_del" type="Button" parent="terminal/Camera3D/interface" index="10" unique_id=1924379658]
+modulate = Color(1, 1, 1, 0)
 offset_left = 638.9
 offset_top = 524.43
 offset_right = 682.005
 offset_bottom = 547.0449
 
 [node name="Button_ent" type="Button" parent="terminal/Camera3D/interface" index="11" unique_id=142065233]
+modulate = Color(1, 1, 1, 0)
 offset_left = 642.1
 offset_top = 549.565
 offset_right = 689.38
@@ -2204,6 +2281,12 @@ collision_mask = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="terminal/beeninmainterm" index="0" unique_id=686565738]
 transform = Transform3D(1, 0, 0, 0, 0.99999857, 0, 0, 0, 0.99999857, 0.079818726, 1.0422969, 0.7419243)
 shape = SubResource("BoxShape3D_fgovh")
+
+[node name="thumbup" type="Sprite3D" parent="terminal" index="12" unique_id=802545788]
+transform = Transform3D(0.18492056, 0, 0, 0, 0.18779962, 0, 0, 0, 1, 0.014320215, 1.6898727, 0.12289891)
+modulate = Color(1, 1, 1, 0)
+render_priority = 13
+texture = ExtResource("25_urhtt")
 
 [node name="terminal_1" parent="." index="12" unique_id=1446413503 instance=ExtResource("11_2bhg6")]
 transform = Transform3D(-0.82559097, 0, -0.51848835, 0, 1.0369767, 0, 0.47665513, 0, -0.89804816, 17.821665, 0.4009366, 5.7881794)
@@ -2374,6 +2457,55 @@ transform = Transform3D(0.9987906, 0, -0.049171835, 0, 1, 0, 0.049171835, 0, 0.9
 shape = SubResource("BoxShape3D_divyv")
 debug_color = Color(1, 0, 1, 1)
 
+[node name="correct" type="AudioStreamPlayer" parent="." index="19" unique_id=593097400]
+stream = ExtResource("22_ybi6o")
+
+[node name="incorrect" type="AudioStreamPlayer" parent="." index="20" unique_id=1231308876]
+stream = ExtResource("23_1jf0p")
+
+[node name="buttonclick" type="AudioStreamPlayer" parent="." index="21" unique_id=811108245]
+stream = ExtResource("22_sso12")
+
+[node name="fade" type="CanvasLayer" parent="." index="22" unique_id=1271341070]
+layer = 100
+
+[node name="fade" type="ColorRect" parent="fade" index="0" unique_id=1367685782]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="maintermenable" type="Timer" parent="." index="23" unique_id=191929018]
+wait_time = 45.0
+one_shot = true
+autostart = true
+
+[node name="monologue" type="CanvasLayer" parent="." index="24" unique_id=1726157810]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="monologue" index="0" unique_id=2092383622]
+libraries/ = SubResource("AnimationLibrary_gjl0p")
+autoplay = &"main"
+
+[node name="Label" type="Label" parent="monologue" index="1" unique_id=325938826]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -47.0
+offset_top = -119.0
+offset_right = 47.0
+offset_bottom = -96.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("13_l2xns")
+text = "where am i?"
+
 [connection signal="action_triggered" from="terminal/interactablecomponent" to="." method="_on_interactablecomponent_action_triggered"]
 [connection signal="body_entered" from="terminal/interactablecomponent/Contents/PlayerAreaBox" to="terminal/interactablecomponent" method="_on_player_area_box_body_entered"]
 [connection signal="body_exited" from="terminal/interactablecomponent/Contents/PlayerAreaBox" to="terminal/interactablecomponent" method="_on_player_area_box_body_exited"]
@@ -2392,6 +2524,7 @@ debug_color = Color(1, 0, 1, 1)
 [connection signal="pressed" from="terminal/Camera3D/interface/Button_del" to="." method="_on_button_del_pressed"]
 [connection signal="pressed" from="terminal/Camera3D/interface/Button_ent" to="." method="_on_button_ent_pressed"]
 [connection signal="body_exited" from="terminal/beeninmainterm" to="." method="_on_beeninmainterm_body_exited"]
+[connection signal="timeout" from="maintermenable" to="." method="_on_maintermenable_timeout"]
 
 [editable path="warehouse shelfs/warehouse shelf/cardboard_box2"]
 [editable path="warehouse shelfs/warehouse shelf/cardboard_box3"]
