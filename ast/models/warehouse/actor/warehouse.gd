@@ -25,13 +25,13 @@ func _on_interactablecomponent_action_triggered() -> void:
 
 
 func _input(_event: InputEvent) -> void:
-	if Input.is_action_just_pressed("Interact"):
-		if in_terminal:
-			print("boom")
-			PlayerGlobal.player.camera.make_current()
-			$terminal/Camera3D/CanvasLayer.hide()
-			$terminal/interactablecomponent.show()
-			$terminal/interactablecomponent.process_mode = Node.PROCESS_MODE_INHERIT
-			PlayerGlobal.player.crosshair.show()
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-			in_terminal = false
+	if in_terminal and Input.is_action_just_pressed("Interact"):
+		get_viewport().set_input_as_handled()
+		print("boom")
+		PlayerGlobal.player.camera.make_current()
+		$terminal/Camera3D/CanvasLayer.hide()
+		$terminal/interactablecomponent.show()
+		$terminal/interactablecomponent.process_mode = Node.PROCESS_MODE_INHERIT
+		PlayerGlobal.player.crosshair.show()
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		in_terminal = false
