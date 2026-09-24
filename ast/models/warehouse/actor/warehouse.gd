@@ -1,11 +1,15 @@
 extends Node3D
 
-var current_code : string = ""
+var current_code : String = ""
 
+@export var code: Label3D
 
 var exit_main_term_area_debounce : bool = false
 
 var in_terminal : bool = false
+
+func _process(_delta: float) -> void:
+	code.text = current_code
 
 func _on_beeninmainterm_body_exited(body: Node3D) -> void:
 	if body.is_in_group(&"player_body"):
@@ -44,7 +48,11 @@ func _input(_event: InputEvent) -> void:
 
 func _on_button_0_pressed() -> void:
 	if in_terminal:
+		var first_code = current_code
+		if first_code.length() == 4:
+			return
 		
+		current_code = current_code + "0"
 
 func _on_button_1_pressed() -> void:
 	pass # Replace with function body.

@@ -523,8 +523,9 @@ size = Vector3(9.166748, 6.302124, 2.9006958)
 [sub_resource type="BoxShape3D" id="BoxShape3D_divyv"]
 size = Vector3(9.383179, 6.302124, 2.9006958)
 
-[node name="warehouse" unique_id=357572645 instance=ExtResource("1_c1elt")]
+[node name="warehouse" unique_id=357572645 node_paths=PackedStringArray("code") instance=ExtResource("1_c1elt")]
 script = ExtResource("2_8x70h")
+code = NodePath("terminal/Screen/code")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." index="0" unique_id=753791447]
 environment = SubResource("Environment_j0ycx")
